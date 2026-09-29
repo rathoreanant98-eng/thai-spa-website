@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { X, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { CinematicHoverMedia } from '@/components/cinematic-hover-media';
 import { galleryItems } from '@/data/gallery';
 
 export function GalleryGrid({ limit }: { limit?: number }) {
@@ -89,16 +90,23 @@ export function GalleryGrid({ limit }: { limit?: number }) {
           <button
             type="button"
             key={item.id}
-            className={`gallery-item gallery-item-${index + 1}`}
+            className={`gallery-item gallery-item-${index + 1} ${item.motion ? 'has-cinematic-motion' : ''}`}
             onClick={event => open(index, event.currentTarget)}
             aria-label={`Open ${item.title}`}
           >
-            <img src={item.image} alt={item.alt} loading="lazy"/>
+            {item.motion ? (
+              <CinematicHoverMedia src={item.image} alt={item.alt} />
+            ) : (
+              <img src={item.image} alt={item.alt} loading="lazy"/>
+            )}
+
             <span className="gallery-caption">
               <small>{item.category}</small>
               <strong>{item.title}</strong>
               <ArrowUpRight size={18}/>
             </span>
+
+            {item.motion ? <span className="motion-hint" aria-hidden="true">Move to explore</span> : null}
           </button>
         ))}
       </div>
@@ -118,7 +126,13 @@ export function GalleryGrid({ limit }: { limit?: number }) {
           </div>
 
           <figure>
-            <div className="lightbox-image-wrap"><img src={active.image} alt={active.alt}/></div>
+            <div className="lightbox-image-wrap">
+              {active.motion ? (
+                <CinematicHoverMedia src={active.image} alt={active.alt} className="cinematic-lightbox-media" />
+              ) : (
+                <img src={active.image} alt={active.alt}/>
+              )}
+            </div>
             <figcaption>
               <span>{active.category}</span>
               <strong>{active.title}</strong>

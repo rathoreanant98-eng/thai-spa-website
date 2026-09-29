@@ -1,5 +1,21 @@
-export const galleryItems = [
-  { id: 1, title: 'Quiet Arrival', category: 'Arrival mood', image: '/visuals/gallery-1.svg', alt: 'Abstract editorial composition in warm stone and botanical tones' },
+export type GalleryItem = {
+  id: number;
+  title: string;
+  category: string;
+  image: string;
+  alt: string;
+  motion?: boolean;
+};
+
+export const galleryItems: GalleryItem[] = [
+  {
+    id: 1,
+    title: 'Quiet Arrival',
+    category: 'Arrival mood',
+    image: '/visuals/gallery-1.svg',
+    alt: 'Warm Thai-inspired spa arrival atmosphere with layered hospitality details',
+    motion: true,
+  },
   { id: 2, title: 'Botanical Detail', category: 'Botanicals', image: '/visuals/gallery-2.svg', alt: 'Abstract botanical-inspired composition in warm neutral tones' },
   { id: 3, title: 'Warm Stone Ritual', category: 'Warmth', image: '/visuals/gallery-3.svg', alt: 'Abstract editorial composition inspired by warm stone and soft light' },
   { id: 4, title: 'Private Calm', category: 'Stillness', image: '/visuals/gallery-4.svg', alt: 'Abstract calm interior-inspired composition with deep warm contrast' },

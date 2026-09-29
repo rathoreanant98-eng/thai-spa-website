@@ -1845,3 +1845,291 @@ p, li {
     transform: none !important;
   }
 }
+
+
+/* Cinematic gallery hover — lightweight 3-second sensory motion */
+.cinematic-hover-media {
+  --cinematic-x: 50%;
+  --cinematic-y: 50%;
+  --cinematic-pan-x: 0px;
+  --cinematic-pan-y: 0px;
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  background: #1b1411;
+}
+.cinematic-hover-media > img,
+.cinematic-depth img {
+  position: absolute;
+  inset: -1.5%;
+  width: 103%;
+  height: 103%;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+}
+.cinematic-base {
+  z-index: 0;
+  transform:
+    translate3d(var(--cinematic-pan-x), var(--cinematic-pan-y), 0)
+    scale(1.012);
+  transform-origin: var(--cinematic-x) var(--cinematic-y);
+  transition:
+    transform 2.9s cubic-bezier(.18,.8,.22,1),
+    filter 1.4s ease;
+  will-change: transform;
+}
+.cinematic-hover-media.is-active .cinematic-base {
+  transform:
+    translate3d(var(--cinematic-pan-x), var(--cinematic-pan-y), 0)
+    scale(1.065);
+  filter: saturate(1.035) contrast(1.015) brightness(1.018);
+}
+
+.cinematic-depth {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.15s ease;
+}
+.cinematic-depth img {
+  transform: translate3d(0,0,0) scale(1.014);
+  transition: transform 2.9s cubic-bezier(.18,.8,.22,1);
+}
+.cinematic-depth-left {
+  clip-path: polygon(0 0, 39% 0, 35% 100%, 0 100%);
+  mix-blend-mode: normal;
+}
+.cinematic-depth-right {
+  clip-path: polygon(76% 0, 100% 0, 100% 100%, 82% 100%, 78% 52%);
+  mix-blend-mode: normal;
+}
+.cinematic-hover-media.is-active .cinematic-depth {
+  opacity: .34;
+}
+.cinematic-hover-media.is-active .cinematic-depth-left img {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .38 - 2px), calc(var(--cinematic-pan-y) * .28), 0)
+    scale(1.035)
+    rotate(.08deg);
+  animation: cinematicFoliageLeft 3s ease-in-out infinite alternate;
+}
+.cinematic-hover-media.is-active .cinematic-depth-right img {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * -.28 + 2px), calc(var(--cinematic-pan-y) * .22), 0)
+    scale(1.038)
+    rotate(-.08deg);
+  animation: cinematicFoliageRight 3.2s ease-in-out infinite alternate;
+}
+
+.cinematic-light-shimmer,
+.cinematic-reflection,
+.cinematic-candles,
+.cinematic-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.cinematic-light-shimmer {
+  z-index: 2;
+  opacity: 0;
+  background:
+    radial-gradient(
+      circle at var(--cinematic-x) var(--cinematic-y),
+      rgba(255,226,169,.18) 0,
+      rgba(232,174,102,.08) 17%,
+      transparent 42%
+    ),
+    linear-gradient(
+      112deg,
+      rgba(255,214,139,.10) 0%,
+      rgba(255,230,184,.02) 31%,
+      transparent 52%
+    );
+  mix-blend-mode: screen;
+  transition: opacity 1s ease;
+}
+.cinematic-hover-media.is-active .cinematic-light-shimmer {
+  opacity: .82;
+  animation: cinematicLightBreath 2.8s ease-in-out infinite alternate;
+}
+
+.cinematic-reflection {
+  z-index: 2;
+  top: 49%;
+  left: 1%;
+  right: 29%;
+  bottom: -8%;
+  opacity: 0;
+  transform-origin: center bottom;
+  background:
+    repeating-linear-gradient(
+      177deg,
+      rgba(255,220,158,.0) 0px,
+      rgba(255,220,158,.10) 2px,
+      rgba(255,255,255,.025) 5px,
+      rgba(255,196,105,.0) 10px
+    );
+  mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,.78) 32%, transparent 94%);
+  mix-blend-mode: screen;
+  filter: blur(1px);
+  transition: opacity .9s ease;
+}
+.cinematic-hover-media.is-active .cinematic-reflection {
+  opacity: .42;
+  animation: cinematicWater 1.65s ease-in-out infinite alternate;
+}
+
+.cinematic-candles {
+  z-index: 3;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 12% 69%, rgba(255,189,89,.34) 0 1.3%, transparent 4.2%),
+    radial-gradient(circle at 26% 57%, rgba(255,194,93,.30) 0 1.15%, transparent 3.7%),
+    radial-gradient(circle at 88% 55%, rgba(255,185,78,.26) 0 1.1%, transparent 3.5%),
+    radial-gradient(circle at 96% 71%, rgba(255,189,86,.24) 0 1.1%, transparent 3.8%);
+  mix-blend-mode: screen;
+  transition: opacity .7s ease;
+}
+.cinematic-hover-media.is-active .cinematic-candles {
+  opacity: .9;
+  animation: cinematicCandleFlicker .72s steps(4,end) infinite;
+}
+
+.cinematic-vignette {
+  z-index: 4;
+  background:
+    linear-gradient(0deg, rgba(17,12,10,.10), transparent 42%),
+    radial-gradient(circle at center, transparent 52%, rgba(17,12,10,.10) 112%);
+  transition: opacity 1.2s ease;
+}
+.cinematic-hover-media.is-active .cinematic-vignette {
+  opacity: .58;
+}
+
+.gallery-item.has-cinematic-motion .cinematic-hover-media {
+  position: absolute;
+  inset: 0;
+}
+.gallery-item.has-cinematic-motion:hover .cinematic-base,
+.gallery-item.has-cinematic-motion:hover .cinematic-depth img {
+  /* Override the legacy gallery-wide img hover zoom; cinematic component owns motion. */
+  will-change: transform;
+}
+.gallery-item.has-cinematic-motion:hover > .cinematic-hover-media img {
+  /* Specific enough to prevent the old .gallery-item:hover img rule from stacking zooms. */
+  transform-origin: var(--cinematic-x) var(--cinematic-y);
+}
+.motion-hint {
+  position: absolute;
+  z-index: 3;
+  top: 20px;
+  right: 20px;
+  padding: 8px 11px;
+  border: 1px solid rgba(255,253,249,.24);
+  border-radius: 999px;
+  background: rgba(20,15,13,.22);
+  backdrop-filter: blur(10px);
+  color: rgba(255,253,249,.72);
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+.gallery-item.has-cinematic-motion:hover .motion-hint,
+.gallery-item.has-cinematic-motion:focus-visible .motion-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.lightbox-image-wrap .cinematic-hover-media {
+  min-height: 100svh;
+}
+.lightbox-image-wrap .cinematic-hover-media .cinematic-base {
+  filter: sepia(.12) saturate(.84) brightness(.88);
+}
+.lightbox-image-wrap .cinematic-hover-media.is-active .cinematic-base {
+  filter: sepia(.08) saturate(.92) brightness(.91) contrast(1.01);
+}
+
+@keyframes cinematicFoliageLeft {
+  from { clip-path: polygon(0 0, 39% 0, 35% 100%, 0 100%); }
+  to { clip-path: polygon(0 0, 40% 0, 36% 100%, 0 100%); }
+}
+@keyframes cinematicFoliageRight {
+  from { clip-path: polygon(76% 0, 100% 0, 100% 100%, 82% 100%, 78% 52%); }
+  to { clip-path: polygon(75.5% 0, 100% 0, 100% 100%, 81.2% 100%, 77.6% 52%); }
+}
+@keyframes cinematicLightBreath {
+  0% { filter: brightness(.92) blur(0); transform: translate3d(-.3%,0,0); }
+  55% { filter: brightness(1.08) blur(.3px); }
+  100% { filter: brightness(.98) blur(0); transform: translate3d(.45%,-.15%,0); }
+}
+@keyframes cinematicWater {
+  from { transform: translate3d(-.25%,0,0) skewX(-.35deg) scaleY(.985); filter: blur(.8px); }
+  to { transform: translate3d(.35%,1.2px,0) skewX(.4deg) scaleY(1.018); filter: blur(1.35px); }
+}
+@keyframes cinematicCandleFlicker {
+  0%, 100% { filter: brightness(.92) blur(.2px); transform: scale(1); }
+  25% { filter: brightness(1.14) blur(.45px); transform: scale(1.006); }
+  50% { filter: brightness(.98) blur(.15px); transform: scale(.998); }
+  75% { filter: brightness(1.08) blur(.35px); transform: scale(1.004); }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .motion-hint { display: none; }
+  .cinematic-depth,
+  .cinematic-light-shimmer,
+  .cinematic-reflection,
+  .cinematic-candles {
+    display: none;
+  }
+  .cinematic-base {
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .lightbox-image-wrap .cinematic-hover-media {
+    min-height: 62svh;
+  }
+}
+
+@media (max-width: 560px) {
+  .lightbox-image-wrap .cinematic-hover-media {
+    min-height: 52svh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic-hover-media *,
+  .cinematic-hover-media *::before,
+  .cinematic-hover-media *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .cinematic-base,
+  .cinematic-hover-media.is-active .cinematic-base,
+  .cinematic-depth img,
+  .cinematic-hover-media.is-active .cinematic-depth img {
+    transform: none !important;
+  }
+  .cinematic-depth,
+  .cinematic-light-shimmer,
+  .cinematic-reflection,
+  .cinematic-candles {
+    display: none !important;
+  }
+}
