@@ -697,3 +697,21 @@ body::selection { background: var(--espresso); color: var(--ivory); }
   .editorial-image { min-height: 440px; }
   .mobile-action-bar { left: 10px; right: 10px; }
 }
+
+
+/* Prevent closed mobile navigation from leaking into the desktop viewport. */
+.mobile-menu {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.mobile-menu.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+@media (min-width: 1121px) {
+  .mobile-menu { display: none !important; }
+}
