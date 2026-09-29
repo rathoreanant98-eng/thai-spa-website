@@ -2416,3 +2416,64 @@ p, li {
 .cinematic-hover-media.is-profile-sensory.is-active .cinematic-depth {
   opacity: .24;
 }
+
+
+/* Architectural atmosphere profile: slow spatial motion for water, lanterns and deep pavilion perspective. */
+.cinematic-hover-media.is-profile-architecture .cinematic-depth-left {
+  clip-path: polygon(0 0, 32% 0, 37% 100%, 0 100%);
+}
+.cinematic-hover-media.is-profile-architecture .cinematic-depth-right {
+  clip-path: polygon(68% 0, 100% 0, 100% 100%, 72% 100%, 70% 0);
+}
+.cinematic-hover-media.is-profile-architecture .cinematic-reflection {
+  top: 48%;
+  left: -2%;
+  right: -2%;
+  bottom: -4%;
+  opacity: 0;
+  background:
+    repeating-linear-gradient(
+      179deg,
+      rgba(255,232,184,0) 0px,
+      rgba(255,232,184,.085) 2px,
+      rgba(255,255,255,.020) 5px,
+      rgba(255,198,110,0) 10px
+    );
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.86) 18%, rgba(0,0,0,.72) 78%, transparent 100%);
+}
+.cinematic-hover-media.is-profile-architecture.is-active .cinematic-reflection {
+  opacity: .38;
+}
+.cinematic-hover-media.is-profile-architecture .cinematic-candles {
+  background:
+    radial-gradient(circle at 12% 56%, rgba(255,189,80,.24) 0 .85%, transparent 3.1%),
+    radial-gradient(circle at 30% 53%, rgba(255,194,92,.22) 0 .8%, transparent 3%),
+    radial-gradient(circle at 55% 45%, rgba(255,187,76,.20) 0 .8%, transparent 3%),
+    radial-gradient(circle at 78% 50%, rgba(255,191,83,.23) 0 .85%, transparent 3.1%),
+    radial-gradient(circle at 91% 63%, rgba(255,183,70,.22) 0 .85%, transparent 3.1%);
+}
+.cinematic-hover-media.is-profile-architecture .cinematic-light-shimmer {
+  background:
+    radial-gradient(
+      circle at var(--cinematic-x) var(--cinematic-y),
+      rgba(255,230,181,.13) 0,
+      rgba(233,176,101,.05) 20%,
+      transparent 46%
+    ),
+    linear-gradient(92deg, rgba(255,215,144,.07) 0%, transparent 34%, transparent 66%, rgba(255,215,144,.05) 100%);
+}
+.cinematic-hover-media.is-profile-architecture.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .34), calc(var(--cinematic-pan-y) * .30), 0)
+    scale(1.032);
+  filter: saturate(1.018) contrast(1.01) brightness(1.008);
+}
+.cinematic-hover-media.is-profile-architecture.is-active .cinematic-depth {
+  opacity: .18;
+}
+.cinematic-hover-media.is-profile-architecture.is-active .cinematic-depth-left img {
+  animation-duration: 5.2s;
+}
+.cinematic-hover-media.is-profile-architecture.is-active .cinematic-depth-right img {
+  animation-duration: 5.6s;
+}

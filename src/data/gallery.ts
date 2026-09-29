@@ -5,7 +5,7 @@ export type GalleryItem = {
   image: string;
   alt: string;
   motion?: boolean;
-  motionProfile?: 'arrival' | 'treatment' | 'thai' | 'aroma' | 'hotstone' | 'couples' | 'sensory';
+  motionProfile?: 'arrival' | 'treatment' | 'thai' | 'aroma' | 'hotstone' | 'couples' | 'sensory' | 'architecture';
 };
 
 export const galleryItems: GalleryItem[] = [
@@ -72,5 +72,13 @@ export const galleryItems: GalleryItem[] = [
     motion: true,
     motionProfile: 'sensory',
   },
-  { id: 8, title: 'Water & Stillness', category: 'Water ritual', image: '/visuals/gallery-8.svg', alt: 'Abstract hydro-inspired composition with calm water-like forms' },
+  {
+    id: 8,
+    title: 'Sanctuary Architecture',
+    category: 'Spa atmosphere',
+    image: '/visuals/wider-spa-architectural-atmosphere.webp',
+    alt: 'Wide Thai-inspired luxury spa pavilion with reflective water, carved timber, lanterns, tropical landscaping and warm architectural lighting',
+    motion: true,
+    motionProfile: 'architecture',
+  },
 ];
