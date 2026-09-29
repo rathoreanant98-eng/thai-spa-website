@@ -59,20 +59,29 @@ export default function HomePage() {
         <span className="hero-scroll">Scroll to discover</span>
       </section>
 
-      <section className="page-section">
-        <div className="site-container editorial-split">
-          <MotionReveal className="editorial-image">
-            <img src="/visuals/sanctuary.svg" alt="Abstract warm-toned wellness artwork" loading="lazy"/>
-          </MotionReveal>
-          <MotionReveal className="editorial-copy" delay={100}>
-            <p className="eyebrow">A considered approach</p>
-            <h2 className="display-title">Luxury is the feeling that nothing has been rushed.</h2>
+      <section className="page-section philosophy-section">
+        <div className="site-container philosophy-split">
+          <MotionReveal className="philosophy-copy">
+            <div className="philosophy-index"><span>02</span><span>Our philosophy</span></div>
+            <h2 className="display-title">More than <em>a massage.</em></h2>
             <p className="body-copy">
-              From the first conversation to the final quiet minutes, the experience is designed to feel composed and personal. Preferences are discussed clearly so each visit can move at a pace that feels comfortable.
+              A considered wellness experience is shaped by more than technique. Pressure, pace, privacy and the details around the treatment all contribute to how comfortably you can unwind.
             </p>
-            <div className="attribute-list">
-              {['Personalized Pressure','Quiet, Private Atmosphere','Respectful Professional Care','Comfort-Led Rituals','Unhurried Guest Experience'].map((item, i) => <div key={item}><span>0{i+1}</span>{item}</div>)}
+            <div className="philosophy-principles" aria-label="Experience principles">
+              {['Personalized pressure','Calm preparation','Professional care','Guest privacy'].map((item, i) => <div key={item}><span>0{i+1}</span><strong>{item}</strong></div>)}
             </div>
+            <Link className="button button-dark philosophy-cta" href="/our-story/">
+              Our story <ArrowUpRight size={15}/>
+            </Link>
+          </MotionReveal>
+
+          <MotionReveal className="philosophy-media" delay={100}>
+            <img
+              src="/visuals/more-than-a-massage.webp"
+              alt="Thai-inspired spa therapist preparing towels, herbal compresses and treatment details in a warm private treatment room"
+              loading="lazy"
+            />
+            <span className="philosophy-media-note">Preparation · ritual · care</span>
           </MotionReveal>
         </div>
       </section>

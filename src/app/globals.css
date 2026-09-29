@@ -3160,3 +3160,229 @@ p, li {
     bottom: 72px;
   }
 }
+
+
+/* Phase 4A — homepage philosophy / "More than a massage" */
+.philosophy-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 7% 12%, rgba(184,134,88,.055), transparent 27rem),
+    var(--ivory);
+}
+
+.philosophy-section::after {
+  content: '';
+  position: absolute;
+  width: 42vw;
+  height: 42vw;
+  min-width: 480px;
+  min-height: 480px;
+  right: -26vw;
+  bottom: -27vw;
+  border: 1px solid rgba(184,134,88,.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.philosophy-split {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(440px, 1.08fr);
+  gap: clamp(64px, 8vw, 132px);
+  align-items: center;
+}
+
+.philosophy-copy {
+  max-width: 650px;
+  padding-left: clamp(0px, 2vw, 28px);
+}
+
+.philosophy-index {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+  color: rgba(32,26,23,.48);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+}
+
+.philosophy-index::before {
+  content: '';
+  width: 46px;
+  height: 1px;
+  background: rgba(184,134,88,.68);
+}
+
+.philosophy-index span:first-child {
+  color: var(--bronze);
+}
+
+.philosophy-copy .display-title {
+  max-width: 620px;
+  font-size: clamp(54px, 6.2vw, 94px);
+  line-height: .92;
+  letter-spacing: -.05em;
+}
+
+.philosophy-copy .display-title em {
+  display: block;
+  padding-left: clamp(0px, 3.2vw, 50px);
+  color: #58473d;
+  font-weight: 400;
+}
+
+.philosophy-copy .body-copy {
+  max-width: 570px;
+  margin: 30px 0 36px clamp(0px, 3.2vw, 50px);
+  color: rgba(32,26,23,.62);
+  font-size: 17px;
+  line-height: 1.92;
+}
+
+.philosophy-principles {
+  margin-left: clamp(0px, 3.2vw, 50px);
+  border-top: 1px solid var(--hairline);
+}
+
+.philosophy-principles > div {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  align-items: center;
+  min-height: 48px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.philosophy-principles span {
+  color: var(--bronze);
+  font-size: 9px;
+  letter-spacing: .15em;
+}
+
+.philosophy-principles strong {
+  color: rgba(32,26,23,.73);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .105em;
+}
+
+.philosophy-cta {
+  margin: 34px 0 0 clamp(0px, 3.2vw, 50px);
+}
+
+.philosophy-media {
+  position: relative;
+  min-height: clamp(620px, 68vw, 820px);
+  overflow: hidden;
+  background: #c4a47f;
+  box-shadow: 0 34px 90px rgba(42,29,22,.11);
+}
+
+.philosophy-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, transparent 60%, rgba(23,16,13,.24) 100%),
+    linear-gradient(90deg, rgba(37,25,19,.04), transparent 34%);
+  pointer-events: none;
+}
+
+.philosophy-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 49%;
+  filter: saturate(.92) contrast(1.018) brightness(.97);
+  transform: scale(1.006);
+  transition: transform 1.6s cubic-bezier(.22,1,.36,1), filter 1.2s ease;
+}
+
+.philosophy-media-note {
+  position: absolute;
+  z-index: 2;
+  right: 24px;
+  bottom: 22px;
+  padding: 9px 12px;
+  border: 1px solid rgba(255,249,240,.24);
+  background: rgba(19,13,10,.28);
+  backdrop-filter: blur(10px);
+  color: rgba(255,249,240,.78);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .philosophy-media:hover img {
+    transform: scale(1.025);
+    filter: saturate(.96) contrast(1.012) brightness(.99);
+  }
+}
+
+@media (max-width: 980px) {
+  .philosophy-split {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .philosophy-copy {
+    max-width: 760px;
+    padding-left: 0;
+  }
+
+  .philosophy-media {
+    min-height: 680px;
+  }
+}
+
+@media (max-width: 560px) {
+  .philosophy-section::after {
+    display: none;
+  }
+
+  .philosophy-copy .display-title {
+    font-size: clamp(50px, 14vw, 68px);
+  }
+
+  .philosophy-copy .display-title em,
+  .philosophy-copy .body-copy,
+  .philosophy-principles,
+  .philosophy-cta {
+    padding-left: 0;
+    margin-left: 0;
+  }
+
+  .philosophy-copy .body-copy {
+    margin-top: 24px;
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+
+  .philosophy-media {
+    min-height: 520px;
+  }
+
+  .philosophy-media img {
+    object-position: 51% 50%;
+  }
+
+  .philosophy-media-note {
+    right: 14px;
+    bottom: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .philosophy-media img {
+    transform: none !important;
+    transition: none !important;
+  }
+}
