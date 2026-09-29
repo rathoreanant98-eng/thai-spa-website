@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1100" role="img" aria-label="Decorative editorial wellness artwork">
+<defs>
+ <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3f4a37"/><stop offset="1" stop-color="#0c1512"/></linearGradient>
+ <radialGradient id="r"><stop stop-color="#a98c60" stop-opacity=".75"/><stop offset="1" stop-color="#a98c60" stop-opacity="0"/></radialGradient>
+ <filter id="blur"><feGaussianBlur stdDeviation="24"/></filter>
+</defs>
+<rect width="1600" height="1100" fill="url(#g)"/>
+<circle cx="330" cy="360" r="330" fill="url(#r)" filter="url(#blur)"/>
+<path d="M-80 920 C250 680 430 1040 760 780 S1270 580 1710 760 L1710 1200 L-80 1200Z" fill="#e7dfd2" fill-opacity=".12"/>
+<path d="M1130 120 C1010 260 1010 470 1120 650 C1210 790 1260 940 1170 1120" fill="none" stroke="#e7dfd2" stroke-opacity=".34" stroke-width="2"/>
+<path d="M1120 300 C1240 245 1335 270 1415 375 C1285 390 1198 378 1120 300Z" fill="#e7dfd2" fill-opacity=".18"/>
+<path d="M1130 520 C1020 465 925 500 860 600 C982 610 1065 595 1130 520Z" fill="#e7dfd2" fill-opacity=".13"/>
+<path d="M1198 760 C1320 700 1415 730 1495 830 C1365 846 1275 836 1198 760Z" fill="#e7dfd2" fill-opacity=".14"/>
+<rect x="95" y="94" width="1410" height="912" rx="2" fill="none" stroke="#e7dfd2" stroke-opacity=".16"/>
+</svg>

@@ -1,0 +1,15 @@
+export const spaGuide = [
+  { title: 'Arrival Time', body: 'Arrive a little before your appointment so check-in and preferences can be completed without rushing. The final recommended arrival window should be confirmed by the spa.' },
+  { title: 'What to Wear', body: 'Wear whatever is comfortable for your visit. Appropriate draping and privacy should be maintained throughout treatments.' },
+  { title: 'Spa Etiquette', body: 'Keep voices and devices quiet in relaxation areas so every guest can enjoy a calm environment.' },
+  { title: 'Personal Belongings', body: 'Bring only what you need. The business should confirm how valuables and personal belongings are stored during treatments.' },
+  { title: 'Treatment Preferences', body: 'Tell your therapist about pressure, temperature, aroma, areas to avoid and any comfort preferences before or during your session.' },
+  { title: 'Inappropriate Behaviour', body: 'The spa maintains a professional environment. Inappropriate, abusive or sexual behaviour should result in the session ending immediately.' },
+  { title: 'Steam Usage', body: 'Steam and heat experiences should be used only where offered and according to on-site guidance. Stop if you feel unwell or uncomfortable.' },
+  { title: 'Pregnancy & Health Considerations', body: 'If you are pregnant, have a medical condition, are recovering from an injury or are unsure whether a treatment is appropriate, consult an appropriate healthcare professional before booking.' },
+  { title: 'Food & Beverage', body: 'A light meal and normal hydration are generally more comfortable before a spa visit. The business should provide any treatment-specific guidance.' },
+  { title: 'Feedback', body: 'You are encouraged to speak up during the treatment. Pressure and comfort can be adjusted at any time.' },
+  { title: 'Payment', body: 'Accepted payment methods and any deposit requirements should be confirmed by the business before launch.' },
+  { title: 'Gratuity', body: 'The business should confirm whether gratuity is accepted and how it is handled.' },
+  { title: 'Cancellation / Refund Policy', body: 'Cancellation timing, deposits, late-arrival rules and refund terms must be supplied by the business owner before this policy is published as final.' },
+];
