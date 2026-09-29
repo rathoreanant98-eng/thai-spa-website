@@ -31,7 +31,7 @@ export const treatments: Treatment[] = [
     fullDescription: 'A Thai-inspired bodywork experience combining assisted stretching, rhythmic pressure and controlled movement. The session is designed to encourage relaxation, mobility and an overall sense of physical refreshment without making medical claims.',
     durationOptions: [60, 90], startingPrice: null, pressureLevel: 'Medium–Firm',
     recommendedFor: ['Guests who enjoy assisted stretching', 'Everyday muscular tension', 'A more active wellness experience'],
-    highlights: ['Assisted stretching', 'Rhythmic pressure', 'Personalized pace'], image: '/visuals/thai.svg', featured: true,
+    highlights: ['Assisted stretching', 'Rhythmic pressure', 'Personalized pace'], image: '/visuals/traditional-thai-massage.webp', featured: true,
     bookingLabel: 'Book Thai Massage',
   },
   {
