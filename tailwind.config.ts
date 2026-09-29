@@ -5,20 +5,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        forest: '#17352d',
-        ink: '#151714',
-        ivory: '#f4efe5',
-        linen: '#e7dfd0',
-        sage: '#9eaa91',
-        champagne: '#b99a62',
-        taupe: '#9d8e7c',
+        forest: '#2b221d',
+        ink: '#201a17',
+        ivory: '#f6f0e7',
+        linen: '#ded2c3',
+        sage: '#9b8a7a',
+        champagne: '#b88658',
+        taupe: '#8b796a',
       },
       fontFamily: {
         display: ['var(--font-display)', 'Georgia', 'serif'],
         body: ['var(--font-body)', 'Arial', 'sans-serif'],
       },
       boxShadow: {
-        soft: '0 24px 70px rgba(17, 31, 26, 0.10)',
+        soft: '0 28px 80px rgba(47, 34, 26, 0.10)',
       },
     },
   },

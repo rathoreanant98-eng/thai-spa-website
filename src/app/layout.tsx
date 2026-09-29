@@ -1,25 +1,39 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Manrope } from 'next/font/google';
+import { Bodoni_Moda, Manrope } from 'next/font/google';
 import './globals.css';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { MobileActionBar } from '@/components/mobile-action-bar';
 import { business } from '@/data/business';
+import { displayBrandName } from '@/lib/config';
 
-const display = Cormorant_Garamond({ subsets: ['latin'], variable: '--font-display', weight: ['400','500','600'], display: 'swap' });
-const body = Manrope({ subsets: ['latin'], variable: '--font-body', weight: ['400','500','600'], display: 'swap' });
+const display = Bodoni_Moda({
+  subsets: ['latin'],
+  variable: '--font-display',
+  weight: ['400','500','600'],
+  style: ['normal','italic'],
+  display: 'swap',
+});
+const body = Manrope({
+  subsets: ['latin'],
+  variable: '--font-body',
+  weight: ['400','500','600'],
+  display: 'swap',
+});
+
+const brand = displayBrandName(business.brandName);
 
 export const metadata: Metadata = {
   title: {
-    default: `${business.brandName} | Premium Thai Wellness`,
-    template: `%s | ${business.brandName}`,
+    default: `${brand} | Thai-Inspired Wellness`,
+    template: `%s | ${brand}`,
   },
-  description: 'Private Thai-inspired massage and wellness experiences with personalized pressure, refined rituals and easy appointment requests.',
+  description: 'Considered Thai-inspired massage and wellness experiences with personalized pressure, refined rituals and simple appointment requests.',
   robots: { index: true, follow: true },
   openGraph: {
     type: 'website',
-    title: `${business.brandName} | Premium Thai Wellness`,
-    description: 'Private Thai-inspired massage and wellness experiences designed around your preferences.',
+    title: `${brand} | Thai-Inspired Wellness`,
+    description: 'Considered Thai-inspired wellness experiences designed around your preferences.',
   },
 };
 

@@ -1,4 +1,5 @@
 import { business } from './business';
+import { displayBrandName } from '@/lib/config';
 
 export type PressureLevel = 'Gentle' | 'Gentle–Medium' | 'Medium' | 'Medium–Firm' | 'Firm' | 'Personalized';
 
@@ -114,7 +115,7 @@ export const treatments: Treatment[] = [
     bookingLabel: 'Book Oil + Jacuzzi',
   },
   {
-    id: '10', slug: 'signature', name: `Signature ${business.brandName} Ritual`, shortName: 'Signature Ritual',
+    id: '10', slug: 'signature', name: `Signature ${displayBrandName(business.brandName)} Ritual`, shortName: 'Signature Ritual',
     category: 'Signature', discoveryTags: ['Signature', 'Relaxation', 'Thai & Stretch', 'Hot Stone'],
     shortDescription: 'A customizable house ritual combining warmth, aroma, Thai-inspired movement and personalized pressure.',
     fullDescription: 'The house signature is designed as a distinctive combination ritual that can bring together heated stones, aromatic oils, Thai-inspired stretching and personalized pressure. Its final sequence should be aligned with the treatments the business actually offers.',
