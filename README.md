@@ -1,6 +1,6 @@
 # Premium Thai Spa Website
 
-A production-oriented, static-export Next.js website for a premium Thai spa / massage business.
+A production-oriented Next.js website for a premium Thai spa / massage business.
 
 ## Stack
 
@@ -8,8 +8,8 @@ A production-oriented, static-export Next.js website for a premium Thai spa / ma
 - React + TypeScript
 - Tailwind CSS + custom editorial CSS
 - Lucide icons
-- Static export (`out/`) for simple hosting
-- No backend dependency
+- Node.js 22 runtime
+- Hostinger Web App deployment from GitHub `main`
 
 ## Before launch
 
@@ -32,7 +32,23 @@ npm run lint
 npm run build
 ```
 
-The production export is generated in `out/`.
+## Production
+
+Hostinger should deploy branch `main` as a Node.js Web App using Node 22.x.
+
+Build command:
+
+```bash
+npm run build
+```
+
+Start command:
+
+```bash
+npm run start
+```
+
+See `HOSTINGER.md` for the deployment settings.
 
 ## Business data still required
 
@@ -46,10 +62,8 @@ The production export is generated in `out/`.
 - Google Maps URL
 - Social URLs
 - Confirmed prices
-- Confirmed facilities (especially Jacuzzi / hammam / steam / couples suite)
+- Confirmed facilities
 - Authentic photos
 - Final cancellation / refund terms
 - Final privacy / terms review
-- Genuine testimonials, if the business wants a reviews section
-
-See `HOSTINGER.md` for deployment.
+- Genuine testimonials, if required
