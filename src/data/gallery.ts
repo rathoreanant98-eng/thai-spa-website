@@ -5,7 +5,7 @@ export type GalleryItem = {
   image: string;
   alt: string;
   motion?: boolean;
-  motionProfile?: 'arrival' | 'treatment' | 'thai';
+  motionProfile?: 'arrival' | 'treatment' | 'thai' | 'aroma';
 };
 
 export const galleryItems: GalleryItem[] = [
@@ -36,7 +36,15 @@ export const galleryItems: GalleryItem[] = [
     motion: true,
     motionProfile: 'thai',
   },
-  { id: 4, title: 'Private Calm', category: 'Stillness', image: '/visuals/gallery-4.svg', alt: 'Abstract calm interior-inspired composition with deep warm contrast' },
+  {
+    id: 4,
+    title: 'Aromatic Oil Ritual',
+    category: 'Aromatherapy',
+    image: '/visuals/serene_thai_spa_massage_retreat.webp',
+    alt: 'Thai-inspired aromatherapy massage with a therapist using warm oils on a male guest in a candlelit spa setting',
+    motion: true,
+    motionProfile: 'aroma',
+  },
   { id: 5, title: 'Aromatic Notes', category: 'Aroma', image: '/visuals/gallery-5.svg', alt: 'Abstract aromatherapy-inspired composition with botanical details' },
   { id: 6, title: 'Shared Ritual', category: 'For two', image: '/visuals/gallery-6.svg', alt: 'Abstract editorial wellness composition designed around two guests' },
   { id: 7, title: 'Steam & Stone', category: 'Steam ritual', image: '/visuals/gallery-7.svg', alt: 'Abstract steam-inspired composition in stone and muted light' },

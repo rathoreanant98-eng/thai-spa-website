@@ -2216,3 +2216,55 @@ p, li {
     translate3d(calc(var(--cinematic-pan-x) * .86), calc(var(--cinematic-pan-y) * .82), 0)
     scale(1.058);
 }
+
+
+/* Aromatherapy cinematic profile: tuned for oil sheen, candlelight and floral depth. */
+.cinematic-hover-media.is-profile-aroma .cinematic-depth-left {
+  clip-path: polygon(0 0, 36% 0, 39% 100%, 0 100%);
+}
+.cinematic-hover-media.is-profile-aroma .cinematic-depth-right {
+  clip-path: polygon(69% 0, 100% 0, 100% 100%, 77% 100%, 74% 44%);
+}
+.cinematic-hover-media.is-profile-aroma .cinematic-reflection {
+  top: 40%;
+  left: 18%;
+  right: 13%;
+  bottom: 8%;
+  opacity: 0;
+  background:
+    repeating-linear-gradient(
+      176deg,
+      rgba(255,226,170,0) 0px,
+      rgba(255,226,170,.085) 2px,
+      rgba(255,255,255,.022) 5px,
+      rgba(255,196,105,0) 10px
+    );
+  mask-image: radial-gradient(ellipse at 50% 45%, rgba(0,0,0,.78), transparent 72%);
+}
+.cinematic-hover-media.is-profile-aroma.is-active .cinematic-reflection {
+  opacity: .26;
+}
+.cinematic-hover-media.is-profile-aroma .cinematic-candles {
+  background:
+    radial-gradient(circle at 11% 48%, rgba(255,189,81,.30) 0 1.05%, transparent 3.5%),
+    radial-gradient(circle at 23% 35%, rgba(255,195,94,.26) 0 .95%, transparent 3.2%),
+    radial-gradient(circle at 66% 31%, rgba(255,186,76,.22) 0 .85%, transparent 3.0%),
+    radial-gradient(circle at 83% 42%, rgba(255,190,82,.26) 0 .95%, transparent 3.3%),
+    radial-gradient(circle at 92% 55%, rgba(255,183,70,.23) 0 .9%, transparent 3.2%);
+}
+.cinematic-hover-media.is-profile-aroma .cinematic-light-shimmer {
+  background:
+    radial-gradient(
+      circle at var(--cinematic-x) var(--cinematic-y),
+      rgba(255,231,185,.19) 0,
+      rgba(236,181,111,.08) 16%,
+      transparent 40%
+    ),
+    linear-gradient(108deg, rgba(255,214,146,.12) 0%, transparent 49%);
+}
+.cinematic-hover-media.is-profile-aroma.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .78), calc(var(--cinematic-pan-y) * .72), 0)
+    scale(1.052);
+  filter: saturate(1.05) contrast(1.015) brightness(1.025);
+}
