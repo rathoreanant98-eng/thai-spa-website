@@ -1,21 +1,26 @@
 # Hostinger deployment
 
-This project is configured with `output: 'export'`, so `npm run build` produces a static site in `out/`.
+This project is configured to run as a standard Next.js Node.js application on Hostinger Web App hosting.
 
-## Recommended Hostinger flow
+## Recommended deployment
 
-1. Create a Node.js Web App in Hostinger.
-2. Connect the GitHub repository.
-3. Let Hostinger detect Next.js, or set the build command to `npm run build`.
-4. If Hostinger asks for a static output directory, use `out`.
-5. Deploy.
+1. In Hostinger, go to **Websites → Add Website → Deploy Web App**.
+2. Choose **Import Git Repository**.
+3. Select `rathoreanant98-eng/thai-spa-website`.
+4. Deploy from branch `main`.
+5. Use Node.js `22.x`.
+6. Keep the root directory as `./`.
+7. Use npm as the package manager.
+8. Build command: `npm run build`.
+9. Start command: `npm run start`.
+10. If Hostinger detects Next.js automatically, keep the detected Next.js framework preset. If it shows **Other**, use `.next` as the output directory and the build/start commands above.
 
-Every future push to the connected branch can trigger a new deployment.
+Hostinger installs dependencies during deployment.
 
-## Alternative static hosting flow
+## Automatic deployments
 
-If using Hostinger's plain HTML/static Git deployment rather than Node.js deployment, the hosting flow must publish the generated `out/` directory rather than the TypeScript source tree. The Node.js Web App flow is simpler because Hostinger can install dependencies and build the app automatically.
+Keep Hostinger auto-deployment enabled. Every push to `main` can then build and redeploy the latest version automatically.
 
-## Important
+## Important before public launch
 
-Do not consider the site production-ready until `src/data/business.ts` contains real contact/location/hours data and the abstract visual placeholders have been replaced where real facility photography is required.
+Replace all placeholders in `src/data/business.ts` with verified business details and replace temporary abstract visuals with authentic assets where appropriate.
