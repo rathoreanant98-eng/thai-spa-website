@@ -12,7 +12,7 @@ export const galleryItems: GalleryItem[] = [
     id: 1,
     title: 'Quiet Arrival',
     category: 'Arrival mood',
-    image: '/visuals/gallery-1.svg',
+    image: '/visuals/reception-arrival-premium.webp',
     alt: 'Warm Thai-inspired spa arrival atmosphere with layered hospitality details',
     motion: true,
   },
