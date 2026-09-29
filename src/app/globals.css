@@ -2268,3 +2268,50 @@ p, li {
     scale(1.052);
   filter: saturate(1.05) contrast(1.015) brightness(1.025);
 }
+
+
+/* Hot-stone cinematic profile: tuned for basalt stones, candlelight and rear water feature. */
+.cinematic-hover-media.is-profile-hotstone .cinematic-depth-left {
+  clip-path: polygon(0 0, 31% 0, 35% 100%, 0 100%);
+}
+.cinematic-hover-media.is-profile-hotstone .cinematic-depth-right {
+  clip-path: polygon(70% 0, 100% 0, 100% 100%, 78% 100%, 74% 44%);
+}
+.cinematic-hover-media.is-profile-hotstone .cinematic-reflection {
+  top: 13%;
+  left: -2%;
+  right: 70%;
+  bottom: 29%;
+  opacity: 0;
+  mask-image: radial-gradient(ellipse at 50% 48%, rgba(0,0,0,.88), transparent 72%);
+}
+.cinematic-hover-media.is-profile-hotstone.is-active .cinematic-reflection {
+  opacity: .34;
+}
+.cinematic-hover-media.is-profile-hotstone .cinematic-candles {
+  background:
+    radial-gradient(circle at 7% 70%, rgba(255,185,74,.33) 0 1.1%, transparent 3.6%),
+    radial-gradient(circle at 25% 50%, rgba(255,192,88,.24) 0 .9%, transparent 3.2%),
+    radial-gradient(circle at 53% 33%, rgba(255,181,66,.22) 0 .85%, transparent 3.0%),
+    radial-gradient(circle at 80% 39%, rgba(255,188,80,.26) 0 .9%, transparent 3.3%),
+    radial-gradient(circle at 92% 48%, rgba(255,180,68,.24) 0 .9%, transparent 3.2%);
+}
+.cinematic-hover-media.is-profile-hotstone .cinematic-light-shimmer {
+  background:
+    radial-gradient(
+      circle at var(--cinematic-x) var(--cinematic-y),
+      rgba(255,220,156,.17) 0,
+      rgba(232,168,89,.07) 17%,
+      transparent 41%
+    ),
+    linear-gradient(111deg, rgba(255,204,120,.11) 0%, transparent 49%);
+}
+.cinematic-hover-media.is-profile-hotstone.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .72), calc(var(--cinematic-pan-y) * .68), 0)
+    scale(1.05);
+  filter: saturate(1.025) contrast(1.02) brightness(1.015);
+}
+.cinematic-hover-media.is-profile-hotstone.is-active .cinematic-depth {
+  opacity: .28;
+}

@@ -5,7 +5,7 @@ export type GalleryItem = {
   image: string;
   alt: string;
   motion?: boolean;
-  motionProfile?: 'arrival' | 'treatment' | 'thai' | 'aroma';
+  motionProfile?: 'arrival' | 'treatment' | 'thai' | 'aroma' | 'hotstone';
 };
 
 export const galleryItems: GalleryItem[] = [
@@ -45,7 +45,15 @@ export const galleryItems: GalleryItem[] = [
     motion: true,
     motionProfile: 'aroma',
   },
-  { id: 5, title: 'Aromatic Notes', category: 'Aroma', image: '/visuals/gallery-5.svg', alt: 'Abstract aromatherapy-inspired composition with botanical details' },
+  {
+    id: 5,
+    title: 'Hot Stone Ritual',
+    category: 'Thermo stone',
+    image: '/visuals/hot-stone-ritual-detail.webp',
+    alt: 'Thai-inspired hot stone massage with black basalt stones arranged across a male guest’s back in a warm candlelit spa setting',
+    motion: true,
+    motionProfile: 'hotstone',
+  },
   { id: 6, title: 'Shared Ritual', category: 'For two', image: '/visuals/gallery-6.svg', alt: 'Abstract editorial wellness composition designed around two guests' },
   { id: 7, title: 'Steam & Stone', category: 'Steam ritual', image: '/visuals/gallery-7.svg', alt: 'Abstract steam-inspired composition in stone and muted light' },
   { id: 8, title: 'Water & Stillness', category: 'Water ritual', image: '/visuals/gallery-8.svg', alt: 'Abstract hydro-inspired composition with calm water-like forms' },
