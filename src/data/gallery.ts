@@ -5,6 +5,7 @@ export type GalleryItem = {
   image: string;
   alt: string;
   motion?: boolean;
+  motionProfile?: 'arrival' | 'treatment';
 };
 
 export const galleryItems: GalleryItem[] = [
@@ -15,8 +16,17 @@ export const galleryItems: GalleryItem[] = [
     image: '/visuals/reception-arrival-premium.webp',
     alt: 'Warm Thai-inspired spa arrival atmosphere with layered hospitality details',
     motion: true,
+    motionProfile: 'arrival',
   },
-  { id: 2, title: 'Botanical Detail', category: 'Botanicals', image: '/visuals/gallery-2.svg', alt: 'Abstract botanical-inspired composition in warm neutral tones' },
+  {
+    id: 2,
+    title: 'Treatment Ritual',
+    category: 'Treatment atmosphere',
+    image: '/visuals/treatment-room.webp',
+    alt: 'Thai-inspired massage treatment scene with therapist, guest, candlelight and tropical spa surroundings',
+    motion: true,
+    motionProfile: 'treatment',
+  },
   { id: 3, title: 'Warm Stone Ritual', category: 'Warmth', image: '/visuals/gallery-3.svg', alt: 'Abstract editorial composition inspired by warm stone and soft light' },
   { id: 4, title: 'Private Calm', category: 'Stillness', image: '/visuals/gallery-4.svg', alt: 'Abstract calm interior-inspired composition with deep warm contrast' },
   { id: 5, title: 'Aromatic Notes', category: 'Aroma', image: '/visuals/gallery-5.svg', alt: 'Abstract aromatherapy-inspired composition with botanical details' },

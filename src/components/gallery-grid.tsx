@@ -95,7 +95,7 @@ export function GalleryGrid({ limit }: { limit?: number }) {
             aria-label={`Open ${item.title}`}
           >
             {item.motion ? (
-              <CinematicHoverMedia src={item.image} alt={item.alt} />
+              <CinematicHoverMedia src={item.image} alt={item.alt} profile={item.motionProfile} />
             ) : (
               <img src={item.image} alt={item.alt} loading="lazy"/>
             )}
@@ -128,7 +128,7 @@ export function GalleryGrid({ limit }: { limit?: number }) {
           <figure>
             <div className="lightbox-image-wrap">
               {active.motion ? (
-                <CinematicHoverMedia src={active.image} alt={active.alt} className="cinematic-lightbox-media" />
+                <CinematicHoverMedia src={active.image} alt={active.alt} profile={active.motionProfile} className="cinematic-lightbox-media" />
               ) : (
                 <img src={active.image} alt={active.alt}/>
               )}

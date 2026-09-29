@@ -8,6 +8,7 @@ type CinematicHoverMediaProps = {
   enabled?: boolean;
   className?: string;
   loading?: 'eager' | 'lazy';
+  profile?: 'arrival' | 'treatment';
 };
 
 type MotionStyle = CSSProperties & {
@@ -23,6 +24,7 @@ export function CinematicHoverMedia({
   enabled = true,
   className = '',
   loading = 'lazy',
+  profile = 'arrival',
 }: CinematicHoverMediaProps) {
   const frameRef = useRef<HTMLSpanElement>(null);
   const rafRef = useRef<number | null>(null);
@@ -93,29 +95,19 @@ export function CinematicHoverMedia({
   return (
     <span
       ref={frameRef}
-      className={`cinematic-hover-media ${enabled ? 'is-enabled' : ''} ${active ? 'is-active' : ''} ${className}`}
+      className={`cinematic-hover-media is-profile-${profile} ${enabled ? 'is-enabled' : ''} ${active ? 'is-active' : ''} ${className}`}
       style={style}
       onPointerEnter={() => canHover && setActive(true)}
       onPointerMove={updatePointer}
       onPointerLeave={resetPointer}
       aria-hidden={alt ? undefined : true}
     >
-      <img
-        className="cinematic-base"
-        src={src}
-        alt={alt}
-        loading={loading}
-        draggable={false}
-      />
+      <img className="cinematic-base" src={src} alt={alt} loading={loading} draggable={false} />
 
       {enabled ? (
         <>
-          <span className="cinematic-depth cinematic-depth-left" aria-hidden="true">
-            <img src={src} alt="" draggable={false} />
-          </span>
-          <span className="cinematic-depth cinematic-depth-right" aria-hidden="true">
-            <img src={src} alt="" draggable={false} />
-          </span>
+          <span className="cinematic-depth cinematic-depth-left" aria-hidden="true"><img src={src} alt="" draggable={false} /></span>
+          <span className="cinematic-depth cinematic-depth-right" aria-hidden="true"><img src={src} alt="" draggable={false} /></span>
           <span className="cinematic-light-shimmer" aria-hidden="true" />
           <span className="cinematic-reflection" aria-hidden="true" />
           <span className="cinematic-candles" aria-hidden="true" />
