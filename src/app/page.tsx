@@ -205,7 +205,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Visual atmosphere"
             title="Texture, warmth and stillness."
-            intro="A restrained visual language of warm stone, botanical forms and low light keeps the atmosphere calm, tactile and quietly luxurious."
+            intro="A curated mix of architecture, treatment ritual and close sensory detail creates a richer, more dimensional view of the wellness atmosphere."
           />
           <GalleryGrid limit={6}/>
           <div className="mt-10"><Link className="text-link" href="/gallery/">View gallery <ArrowUpRight size={15}/></Link></div>
@@ -228,7 +228,7 @@ export default function HomePage() {
             <div className="mt-8"><Link className="button button-dark" href="/contact/#book">Request an appointment <ArrowUpRight size={15}/></Link></div>
           </div>
           <div className="editorial-image !min-h-[520px]">
-            <img src="/visuals/gallery-1.svg" alt="Abstract warm-toned editorial artwork" loading="lazy"/>
+            <img src="/visuals/premium-detail-sensory-shot.webp" alt="Close-up spa ritual detail with warm oil, candlelight and an ornate bowl" loading="lazy"/>
           </div>
         </div>
       </section>

@@ -95,9 +95,14 @@ export function GalleryGrid({ limit }: { limit?: number }) {
             aria-label={`Open ${item.title}`}
           >
             {item.motion ? (
-              <CinematicHoverMedia src={item.image} alt={item.alt} profile={item.motionProfile} />
+              <CinematicHoverMedia
+                src={item.image}
+                alt={item.alt}
+                profile={item.motionProfile}
+                objectPosition={item.focalPoint}
+              />
             ) : (
-              <img src={item.image} alt={item.alt} loading="lazy"/>
+              <img src={item.image} alt={item.alt} loading="lazy" style={{ objectPosition: item.focalPoint }} />
             )}
 
             <span className="gallery-caption">
@@ -106,7 +111,7 @@ export function GalleryGrid({ limit }: { limit?: number }) {
               <ArrowUpRight size={18}/>
             </span>
 
-            {item.motion ? <span className="motion-hint" aria-hidden="true">Move to explore</span> : null}
+            {item.motion && index === 0 ? <span className="motion-hint" aria-hidden="true">Move to explore</span> : null}
           </button>
         ))}
       </div>
@@ -127,16 +132,20 @@ export function GalleryGrid({ limit }: { limit?: number }) {
 
           <figure>
             <div className="lightbox-image-wrap">
-              {active.motion ? (
-                <CinematicHoverMedia src={active.image} alt={active.alt} profile={active.motionProfile} className="cinematic-lightbox-media" />
-              ) : (
-                <img src={active.image} alt={active.alt}/>
-              )}
+              <CinematicHoverMedia
+                src={active.image}
+                alt={active.alt}
+                profile={active.motionProfile}
+                objectPosition={active.focalPoint}
+                fit="contain"
+                enabled={false}
+                className="cinematic-lightbox-media"
+              />
             </div>
             <figcaption>
               <span>{active.category}</span>
               <strong>{active.title}</strong>
-              <p>A visual note in the wider language of warmth, texture and stillness.</p>
+              <p>{active.description}</p>
               <div className="lightbox-nav">
                 <button type="button" onClick={previous}><ChevronLeft size={17}/> Previous</button>
                 <button type="button" onClick={next}>Next <ChevronRight size={17}/></button>

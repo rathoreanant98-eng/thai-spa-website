@@ -1,6 +1,7 @@
 'use client';
 
 import { CSSProperties, PointerEvent, useEffect, useRef, useState } from 'react';
+import type { GalleryMotionProfile } from '@/data/gallery';
 
 type CinematicHoverMediaProps = {
   src: string;
@@ -8,7 +9,9 @@ type CinematicHoverMediaProps = {
   enabled?: boolean;
   className?: string;
   loading?: 'eager' | 'lazy';
-  profile?: 'arrival' | 'treatment' | 'thai' | 'aroma' | 'hotstone' | 'couples' | 'sensory' | 'architecture';
+  profile?: GalleryMotionProfile;
+  objectPosition?: string;
+  fit?: 'cover' | 'contain';
 };
 
 type MotionStyle = CSSProperties & {
@@ -16,6 +19,7 @@ type MotionStyle = CSSProperties & {
   '--cinematic-y'?: string;
   '--cinematic-pan-x'?: string;
   '--cinematic-pan-y'?: string;
+  '--cinematic-position'?: string;
 };
 
 export function CinematicHoverMedia({
@@ -25,6 +29,8 @@ export function CinematicHoverMedia({
   className = '',
   loading = 'lazy',
   profile = 'arrival',
+  objectPosition = '50% 50%',
+  fit = 'cover',
 }: CinematicHoverMediaProps) {
   const frameRef = useRef<HTMLSpanElement>(null);
   const rafRef = useRef<number | null>(null);
@@ -67,8 +73,8 @@ export function CinematicHoverMedia({
     rafRef.current = requestAnimationFrame(() => {
       node.style.setProperty('--cinematic-x', `${(px * 100).toFixed(2)}%`);
       node.style.setProperty('--cinematic-y', `${(py * 100).toFixed(2)}%`);
-      node.style.setProperty('--cinematic-pan-x', `${((px - .5) * -10).toFixed(2)}px`);
-      node.style.setProperty('--cinematic-pan-y', `${((py - .5) * -7).toFixed(2)}px`);
+      node.style.setProperty('--cinematic-pan-x', `${((px - .5) * -8).toFixed(2)}px`);
+      node.style.setProperty('--cinematic-pan-y', `${((py - .5) * -5.5).toFixed(2)}px`);
     });
   }
 
@@ -90,12 +96,13 @@ export function CinematicHoverMedia({
     '--cinematic-y': '50%',
     '--cinematic-pan-x': '0px',
     '--cinematic-pan-y': '0px',
+    '--cinematic-position': objectPosition,
   };
 
   return (
     <span
       ref={frameRef}
-      className={`cinematic-hover-media is-profile-${profile} ${enabled ? 'is-enabled' : ''} ${active ? 'is-active' : ''} ${className}`}
+      className={`cinematic-hover-media is-profile-${profile} is-fit-${fit} ${enabled ? 'is-enabled' : ''} ${active ? 'is-active' : ''} ${className}`}
       style={style}
       onPointerEnter={() => canHover && setActive(true)}
       onPointerMove={updatePointer}

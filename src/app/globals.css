@@ -2477,3 +2477,259 @@ p, li {
 .cinematic-hover-media.is-profile-architecture.is-active .cinematic-depth-right img {
   animation-duration: 5.6s;
 }
+
+
+/* Full gallery QA pass — crop fidelity, visual rhythm, motion restraint and lightbox clarity */
+.cinematic-hover-media > img,
+.cinematic-depth img {
+  object-position: var(--cinematic-position, 50% 50%);
+}
+
+.gallery-page-section .gallery-grid {
+  gap: 14px;
+}
+
+.gallery-item img {
+  filter: sepia(.08) saturate(.92) brightness(.94) contrast(1.015);
+}
+
+.gallery-item::after {
+  background:
+    linear-gradient(0deg, rgba(16,12,10,.60) 0%, rgba(16,12,10,.16) 40%, transparent 66%);
+  opacity: .68;
+}
+
+.gallery-item:hover::after {
+  opacity: .78;
+}
+
+.gallery-caption {
+  padding: 30px 28px 24px;
+  row-gap: 4px;
+}
+
+.gallery-caption small {
+  color: rgba(255,249,240,.72);
+}
+
+.gallery-caption strong {
+  max-width: 90%;
+  line-height: .98;
+  letter-spacing: -.02em;
+}
+
+.motion-hint {
+  top: 18px;
+  right: 18px;
+  background: rgba(20,15,13,.34);
+  border-color: rgba(255,253,249,.30);
+}
+
+/* Keep cinematic movement perceptible but restrained around people and treatment details. */
+.cinematic-hover-media.is-profile-arrival.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .70), calc(var(--cinematic-pan-y) * .62), 0)
+    scale(1.048);
+}
+
+.cinematic-hover-media.is-profile-treatment.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .54), calc(var(--cinematic-pan-y) * .48), 0)
+    scale(1.04);
+}
+
+.cinematic-hover-media.is-profile-thai.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .58), calc(var(--cinematic-pan-y) * .52), 0)
+    scale(1.042);
+}
+
+.cinematic-hover-media.is-profile-sensory.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .48), calc(var(--cinematic-pan-y) * .44), 0)
+    scale(1.04);
+}
+
+.cinematic-hover-media.is-profile-architecture.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .28), calc(var(--cinematic-pan-y) * .24), 0)
+    scale(1.025);
+}
+
+.cinematic-hover-media.is-profile-couples.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .34), calc(var(--cinematic-pan-y) * .30), 0)
+    scale(1.03);
+}
+
+.cinematic-hover-media.is-profile-aroma.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .52), calc(var(--cinematic-pan-y) * .46), 0)
+    scale(1.04);
+}
+
+.cinematic-hover-media.is-profile-hotstone.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .46), calc(var(--cinematic-pan-y) * .42), 0)
+    scale(1.038);
+}
+
+.cinematic-hover-media.is-profile-arrival.is-active .cinematic-depth { opacity: .20; }
+.cinematic-hover-media.is-profile-treatment.is-active .cinematic-depth { opacity: .11; }
+.cinematic-hover-media.is-profile-thai.is-active .cinematic-depth { opacity: .10; }
+.cinematic-hover-media.is-profile-sensory.is-active .cinematic-depth { opacity: .10; }
+.cinematic-hover-media.is-profile-architecture.is-active .cinematic-depth { opacity: .14; }
+.cinematic-hover-media.is-profile-couples.is-active .cinematic-depth { opacity: .08; }
+.cinematic-hover-media.is-profile-aroma.is-active .cinematic-depth { opacity: .09; }
+.cinematic-hover-media.is-profile-hotstone.is-active .cinematic-depth { opacity: .09; }
+
+.cinematic-hover-media.is-active .cinematic-reflection {
+  animation-duration: 2.35s;
+}
+
+.cinematic-hover-media.is-active .cinematic-candles {
+  animation-duration: 1.25s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Full-screen viewing prioritizes the complete photograph over additional effects. */
+.lightbox {
+  background: rgba(13,10,8,.985);
+}
+
+.lightbox figure {
+  grid-template-columns: minmax(0, 1.62fr) minmax(300px, .38fr);
+  height: 100svh;
+}
+
+.lightbox-image-wrap {
+  min-height: 0;
+  height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 3vw, 52px);
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,.025), transparent 58%),
+    #100c0a;
+}
+
+.lightbox-image-wrap .cinematic-hover-media {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  background: transparent;
+}
+
+.cinematic-hover-media.is-fit-contain > img,
+.cinematic-hover-media.is-fit-contain .cinematic-depth img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: var(--cinematic-position, 50% 50%);
+}
+
+.lightbox .cinematic-base {
+  filter: none !important;
+  transform: none !important;
+}
+
+.lightbox figcaption {
+  padding: 110px clamp(30px, 4vw, 58px) 54px;
+}
+
+.lightbox figcaption strong {
+  max-width: 330px;
+  line-height: .94;
+}
+
+.lightbox figcaption p {
+  max-width: 360px;
+  color: rgba(246,240,231,.62);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* Real 4:3 imagery should remain readable on small screens rather than being forced into tall crops. */
+@media (max-width: 980px) {
+  .lightbox figure {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .lightbox-image-wrap {
+    height: 62svh;
+    min-height: 0;
+    padding: 58px 18px 18px;
+  }
+
+  .lightbox-image-wrap .cinematic-hover-media {
+    height: 100%;
+    min-height: 0;
+  }
+
+  .lightbox figcaption {
+    padding: 32px 28px 36px;
+  }
+}
+
+@media (max-width: 820px) {
+  .gallery-grid {
+    grid-auto-rows: 240px;
+  }
+
+  .gallery-item-1 {
+    grid-row: span 2 !important;
+  }
+
+  .gallery-caption {
+    padding: 24px 20px 18px;
+  }
+
+  .gallery-caption strong {
+    font-size: 23px;
+  }
+}
+
+@media (max-width: 560px) {
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 10px;
+  }
+
+  .gallery-item,
+  .gallery-item-1 {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  .gallery-caption {
+    padding: 22px 18px 16px;
+  }
+
+  .gallery-caption strong {
+    max-width: 86%;
+    font-size: 24px;
+  }
+
+  .lightbox-image-wrap {
+    height: 54svh;
+    padding: 54px 10px 10px;
+  }
+
+  .lightbox figcaption {
+    padding: 26px 20px 30px;
+  }
+
+  .lightbox figcaption strong {
+    font-size: 38px;
+  }
+
+  .lightbox-nav {
+    margin-top: 28px;
+  }
+}
