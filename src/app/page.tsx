@@ -18,7 +18,7 @@ export default function HomePage() {
     <>
       <section className="hero">
         <div className="hero-media">
-          <img src="/visuals/hero.svg" alt="Abstract botanical-inspired wellness artwork" />
+          <img src="/visuals/hero-spa-premium.webp" alt="" loading="eager" fetchPriority="high" decoding="async" />
         </div>
 
         <div className="site-container hero-content">

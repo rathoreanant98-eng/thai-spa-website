@@ -18,7 +18,7 @@ export function SiteHeader() {
   const brand = displayBrandName(business.brandName);
 
   useEffect(() => {
-    const onScroll = () => setCompact(window.scrollY > 32);
+    const onScroll = () => setCompact(window.scrollY > 84);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
