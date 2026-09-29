@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Phone, MessageCircle, ArrowUpRight } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { business } from '@/data/business';
 import { navigation } from '@/data/navigation';
 import { displayBrandName, isConfigured } from '@/lib/config';
@@ -12,6 +12,9 @@ export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [compact, setCompact] = useState(false);
+  const openButtonRef = useRef<HTMLButtonElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const brand = displayBrandName(business.brandName);
 
   useEffect(() => {
@@ -21,10 +24,55 @@ export function SiteHeader() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  const closeMenu = useCallback((returnFocus = true) => {
+    setOpen(false);
+    if (returnFocus) requestAnimationFrame(() => openButtonRef.current?.focus());
+  }, []);
+
   useEffect(() => {
-    document.body.style.overflow = open ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [open]);
+    if (!open) {
+      document.body.style.overflow = '';
+      return;
+    }
+
+    document.body.style.overflow = 'hidden';
+    closeButtonRef.current?.focus();
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeMenu();
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const focusable = Array.from(
+        menuRef.current?.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ) ?? [],
+      ).filter(element => !element.hasAttribute('hidden'));
+
+      if (!focusable.length) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [open, closeMenu]);
 
   return (
     <>
@@ -36,9 +84,13 @@ export function SiteHeader() {
           </Link>
 
           <nav className="desktop-nav" aria-label="Primary navigation">
-            {navigation.map((item) => {
+            {navigation.map(item => {
               const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href.replace(/\/$/, ''));
-              return <Link key={item.href} className={active ? 'active' : ''} href={item.href}>{item.label}</Link>;
+              return (
+                <Link key={item.href} className={active ? 'active' : ''} aria-current={active ? 'page' : undefined} href={item.href}>
+                  {item.label}
+                </Link>
+              );
             })}
           </nav>
 
@@ -46,41 +98,52 @@ export function SiteHeader() {
             <Link className="button button-light header-book" href="/contact/#book">
               Reserve your time <ArrowUpRight size={15} />
             </Link>
-            <button className="menu-button" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open}>
+            <button ref={openButtonRef} className="menu-button" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open} aria-controls="mobile-navigation">
               <Menu size={24} />
             </button>
           </div>
         </div>
       </header>
 
-      <div className={`mobile-menu ${open ? 'is-open' : ''}`} aria-hidden={!open}>
+      <div
+        ref={menuRef}
+        id="mobile-navigation"
+        className={`mobile-menu ${open ? 'is-open' : ''}`}
+        aria-hidden={!open}
+        role="dialog"
+        aria-modal={open ? 'true' : undefined}
+        aria-label="Site navigation"
+      >
         <div className="mobile-menu-top">
-          <Link className="brand-mark text-ivory" href="/" onClick={() => setOpen(false)}>
+          <Link className="brand-mark text-ivory" href="/" onClick={() => closeMenu(false)}>
             <span className="brand-kicker">Thai-inspired wellness</span>
             <span>{brand}</span>
           </Link>
-          <button className="menu-button menu-close" onClick={() => setOpen(false)} aria-label="Close menu">
+          <button ref={closeButtonRef} className="menu-button menu-close" onClick={() => closeMenu()} aria-label="Close menu">
             <X size={26} />
           </button>
         </div>
 
         <nav className="mobile-nav" aria-label="Mobile navigation">
-          {navigation.map((item, index) => (
-            <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
-              <span className="nav-number">{String(index + 1).padStart(2, '0')}</span>{item.label}
-            </Link>
-          ))}
+          {navigation.map((item, index) => {
+            const active = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href.replace(/\/$/, ''));
+            return (
+              <Link key={item.href} href={item.href} aria-current={active ? 'page' : undefined} onClick={() => closeMenu(false)}>
+                <span className="nav-number">{String(index + 1).padStart(2, '0')}</span>{item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="mobile-menu-actions">
-          <Link className="button button-gold" href="/contact/#book" onClick={() => setOpen(false)}>Reserve your time</Link>
+          <Link className="button button-gold" href="/contact/#book" onClick={() => closeMenu(false)}>Reserve your time</Link>
           <div className="mobile-contact-row">
             {isConfigured(business.phone)
               ? <a href={`tel:${business.phone}`}><Phone size={18}/> Call</a>
-              : <Link href="/contact/" onClick={() => setOpen(false)}><Phone size={18}/> Enquire</Link>}
+              : <Link href="/contact/" onClick={() => closeMenu(false)}><Phone size={18}/> Enquire</Link>}
             {isConfigured(business.whatsAppNumber)
               ? <a href={`https://wa.me/${business.whatsAppNumber.replace(/\D/g, '')}`}><MessageCircle size={18}/> WhatsApp</a>
-              : <Link href="/contact/#book" onClick={() => setOpen(false)}><MessageCircle size={18}/> Request</Link>}
+              : <Link href="/contact/#book" onClick={() => closeMenu(false)}><MessageCircle size={18}/> Request</Link>}
           </div>
         </div>
       </div>

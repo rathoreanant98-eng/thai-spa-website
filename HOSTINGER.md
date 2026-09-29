@@ -24,3 +24,16 @@ Keep Hostinger auto-deployment enabled. Every push to `main` can then build and 
 ## Important before public launch
 
 Replace all placeholders in `src/data/business.ts` with verified business details and replace temporary abstract visuals with authentic assets where appropriate.
+
+
+## Production domain / SEO environment variable
+
+After the final domain is connected in Hostinger, add this environment variable to the Web App deployment:
+
+```
+NEXT_PUBLIC_SITE_URL=https://www.your-real-domain.com
+```
+
+Use the final HTTPS origin only, with no path. This enables absolute URLs in `sitemap.xml`, the sitemap reference in `robots.txt`, and business structured data. Until a real domain and brand details are configured, the app intentionally avoids publishing fabricated local-business structured data.
+
+After adding or changing the environment variable, redeploy the application.

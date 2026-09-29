@@ -205,7 +205,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Visual atmosphere"
             title="Texture, warmth and stillness."
-            intro="The visual system is intentionally restrained so authentic brand photography can be introduced later without redesigning the experience."
+            intro="A restrained visual language of warm stone, botanical forms and low light keeps the atmosphere calm, tactile and quietly luxurious."
           />
           <GalleryGrid limit={6}/>
           <div className="mt-10"><Link className="text-link" href="/gallery/">View gallery <ArrowUpRight size={15}/></Link></div>
@@ -218,11 +218,11 @@ export default function HomePage() {
             <SectionHeading
               eyebrow="Visit & booking"
               title="Your time should be easy to reserve."
-              intro="Once the business details are finalized, phone, WhatsApp, location and opening hours will populate throughout the experience from one central configuration."
+              intro="Choose the treatment that feels right, share your preferred time and send an appointment request when you are ready."
             />
             <div className="contact-facts">
-              <div className="contact-fact"><span>Location</span><span>{isConfigured(business.address) ? business.address : 'Available with final business details'}</span></div>
-              <div className="contact-fact"><span>Hours</span><span>{isConfigured(business.openingHours) ? business.openingHours : 'Available with final business details'}</span></div>
+              <div className="contact-fact"><span>Location</span><span>{isConfigured(business.address) ? business.address : 'Provided with appointment confirmation'}</span></div>
+              <div className="contact-fact"><span>Hours</span><span>{isConfigured(business.openingHours) ? business.openingHours : 'Choose a preferred time in your request'}</span></div>
               <div className="contact-fact"><span>Enquiries</span><span>{isConfigured(business.phone) ? business.phone : 'Use the appointment request form'}</span></div>
             </div>
             <div className="mt-8"><Link className="button button-dark" href="/contact/#book">Request an appointment <ArrowUpRight size={15}/></Link></div>
