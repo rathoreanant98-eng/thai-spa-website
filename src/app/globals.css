@@ -2172,3 +2172,47 @@ p, li {
     ),
     linear-gradient(118deg, rgba(255,202,119,.11) 0%, transparent 47%);
 }
+
+
+/* Thai-massage cinematic profile: tuned around assisted stretch, lanterns and garden waterfall. */
+.cinematic-hover-media.is-profile-thai .cinematic-depth-left {
+  clip-path: polygon(0 0, 38% 0, 41% 100%, 0 100%);
+}
+.cinematic-hover-media.is-profile-thai .cinematic-depth-right {
+  clip-path: polygon(67% 0, 100% 0, 100% 100%, 74% 100%, 71% 46%);
+}
+.cinematic-hover-media.is-profile-thai .cinematic-reflection {
+  top: 11%;
+  left: 0%;
+  right: 67%;
+  bottom: 34%;
+  opacity: 0;
+  mask-image: radial-gradient(ellipse at 52% 48%, rgba(0,0,0,.90), transparent 73%);
+}
+.cinematic-hover-media.is-profile-thai.is-active .cinematic-reflection {
+  opacity: .32;
+}
+.cinematic-hover-media.is-profile-thai .cinematic-candles {
+  background:
+    radial-gradient(circle at 7% 62%, rgba(255,188,78,.31) 0 1.05%, transparent 3.7%),
+    radial-gradient(circle at 18% 47%, rgba(255,194,88,.27) 0 .9%, transparent 3.3%),
+    radial-gradient(circle at 47% 31%, rgba(255,184,73,.22) 0 .85%, transparent 3.1%),
+    radial-gradient(circle at 71% 46%, rgba(255,188,80,.24) 0 .9%, transparent 3.3%),
+    radial-gradient(circle at 88% 38%, rgba(255,190,82,.27) 0 .95%, transparent 3.5%),
+    radial-gradient(circle at 94% 68%, rgba(255,181,69,.24) 0 .95%, transparent 3.4%);
+}
+.cinematic-hover-media.is-profile-thai .cinematic-light-shimmer {
+  background:
+    radial-gradient(
+      circle at var(--cinematic-x) var(--cinematic-y),
+      rgba(255,224,168,.15) 0,
+      rgba(229,168,94,.065) 17%,
+      transparent 42%
+    ),
+    linear-gradient(105deg, rgba(255,205,124,.11) 0%, transparent 48%);
+}
+.cinematic-hover-media.is-profile-thai.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .86), calc(var(--cinematic-pan-y) * .82), 0)
+    scale(1.058);
+}

@@ -5,7 +5,7 @@ export type GalleryItem = {
   image: string;
   alt: string;
   motion?: boolean;
-  motionProfile?: 'arrival' | 'treatment';
+  motionProfile?: 'arrival' | 'treatment' | 'thai';
 };
 
 export const galleryItems: GalleryItem[] = [
@@ -27,7 +27,15 @@ export const galleryItems: GalleryItem[] = [
     motion: true,
     motionProfile: 'treatment',
   },
-  { id: 3, title: 'Warm Stone Ritual', category: 'Warmth', image: '/visuals/gallery-3.svg', alt: 'Abstract editorial composition inspired by warm stone and soft light' },
+  {
+    id: 3,
+    title: 'Thai Stretch Ritual',
+    category: 'Traditional Thai',
+    image: '/visuals/thai-massage-setup.webp',
+    alt: 'Thai-inspired floor massage scene with therapist guiding a guest through an assisted stretch in a warm tropical spa setting',
+    motion: true,
+    motionProfile: 'thai',
+  },
   { id: 4, title: 'Private Calm', category: 'Stillness', image: '/visuals/gallery-4.svg', alt: 'Abstract calm interior-inspired composition with deep warm contrast' },
   { id: 5, title: 'Aromatic Notes', category: 'Aroma', image: '/visuals/gallery-5.svg', alt: 'Abstract aromatherapy-inspired composition with botanical details' },
   { id: 6, title: 'Shared Ritual', category: 'For two', image: '/visuals/gallery-6.svg', alt: 'Abstract editorial wellness composition designed around two guests' },
