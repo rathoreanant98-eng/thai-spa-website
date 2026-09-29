@@ -2315,3 +2315,50 @@ p, li {
 .cinematic-hover-media.is-profile-hotstone.is-active .cinematic-depth {
   opacity: .28;
 }
+
+
+/* Couples-room cinematic profile: keeps the twin-table composition balanced while animating candlelight and the central water feature. */
+.cinematic-hover-media.is-profile-couples .cinematic-depth-left {
+  clip-path: polygon(0 0, 30% 0, 34% 100%, 0 100%);
+}
+.cinematic-hover-media.is-profile-couples .cinematic-depth-right {
+  clip-path: polygon(70% 0, 100% 0, 100% 100%, 66% 100%, 69% 0);
+}
+.cinematic-hover-media.is-profile-couples .cinematic-reflection {
+  top: 22%;
+  left: 38%;
+  right: 37%;
+  bottom: 28%;
+  opacity: 0;
+  mask-image: radial-gradient(ellipse at 50% 48%, rgba(0,0,0,.9), transparent 72%);
+}
+.cinematic-hover-media.is-profile-couples.is-active .cinematic-reflection {
+  opacity: .31;
+}
+.cinematic-hover-media.is-profile-couples .cinematic-candles {
+  background:
+    radial-gradient(circle at 11% 71%, rgba(255,188,79,.28) 0 1%, transparent 3.5%),
+    radial-gradient(circle at 29% 58%, rgba(255,194,91,.24) 0 .9%, transparent 3.2%),
+    radial-gradient(circle at 50% 72%, rgba(255,188,78,.26) 0 .95%, transparent 3.4%),
+    radial-gradient(circle at 72% 58%, rgba(255,191,84,.24) 0 .9%, transparent 3.2%),
+    radial-gradient(circle at 89% 71%, rgba(255,184,72,.27) 0 1%, transparent 3.5%);
+}
+.cinematic-hover-media.is-profile-couples .cinematic-light-shimmer {
+  background:
+    radial-gradient(
+      circle at var(--cinematic-x) var(--cinematic-y),
+      rgba(255,228,177,.15) 0,
+      rgba(232,172,98,.06) 18%,
+      transparent 42%
+    ),
+    linear-gradient(90deg, rgba(255,210,134,.08) 0%, transparent 28%, transparent 72%, rgba(255,210,134,.08) 100%);
+}
+.cinematic-hover-media.is-profile-couples.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .48), calc(var(--cinematic-pan-y) * .42), 0)
+    scale(1.042);
+  filter: saturate(1.025) contrast(1.012) brightness(1.012);
+}
+.cinematic-hover-media.is-profile-couples.is-active .cinematic-depth {
+  opacity: .22;
+}

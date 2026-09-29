@@ -5,7 +5,7 @@ export type GalleryItem = {
   image: string;
   alt: string;
   motion?: boolean;
-  motionProfile?: 'arrival' | 'treatment' | 'thai' | 'aroma' | 'hotstone';
+  motionProfile?: 'arrival' | 'treatment' | 'thai' | 'aroma' | 'hotstone' | 'couples';
 };
 
 export const galleryItems: GalleryItem[] = [
@@ -54,7 +54,15 @@ export const galleryItems: GalleryItem[] = [
     motion: true,
     motionProfile: 'hotstone',
   },
-  { id: 6, title: 'Shared Ritual', category: 'For two', image: '/visuals/gallery-6.svg', alt: 'Abstract editorial wellness composition designed around two guests' },
+  {
+    id: 6,
+    title: 'Shared Sanctuary',
+    category: 'Couples ritual',
+    image: '/visuals/couples-treatment-room.webp',
+    alt: 'Couples massage suite with two guests receiving simultaneous treatments in a warm candlelit Thai-inspired spa setting',
+    motion: true,
+    motionProfile: 'couples',
+  },
   { id: 7, title: 'Steam & Stone', category: 'Steam ritual', image: '/visuals/gallery-7.svg', alt: 'Abstract steam-inspired composition in stone and muted light' },
   { id: 8, title: 'Water & Stillness', category: 'Water ritual', image: '/visuals/gallery-8.svg', alt: 'Abstract hydro-inspired composition with calm water-like forms' },
 ];
