@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Check, Copy, MessageCircle } from 'lucide-react';
 import { business } from '@/data/business';
 import { treatments } from '@/data/treatments';
@@ -26,56 +26,68 @@ export function BookingForm() {
   const [touched, setTouched] = useState<Set<string>>(new Set());
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const slug = new URLSearchParams(window.location.search).get('treatment');
+    if (!slug) return;
+    const treatment = treatments.find(item => item.slug === slug);
+    if (!treatment) return;
+    setValues(previous => ({ ...previous, therapy: treatment.name, duration: String(treatment.durationOptions[0]), guests: treatment.slug === 'couples-therapy' ? '2' : previous.guests }));
+  }, []);
+
+  const selectedTreatment = treatments.find(treatment => treatment.name === values.therapy);
+  const durationOptions = selectedTreatment?.durationOptions ?? [45, 60, 90, 120];
   const errors = useMemo(() => validate(values), [values]);
   const hasErrors = Object.keys(errors).length > 0;
-
   const message = `Hello, I would like to request an appointment.\n\nName: ${values.name}\nMobile: ${values.mobile}\nTreatment: ${values.therapy}\nDuration: ${values.duration} minutes\nPreferred date: ${values.date}\nPreferred time: ${values.time}\nGuests: ${values.guests}${values.notes ? `\nNotes / preferences: ${values.notes}` : ''}`;
 
   function setField(name: keyof FormState, value: string) {
-    setValues(prev => {
-      const next = { ...prev, [name]: value };
-      if (name === 'therapy' && value === 'Couples Luxury Therapy') next.guests = '2';
+    setSubmitted(false);
+    setValues(previous => {
+      const next = { ...previous, [name]: value };
+      if (name === 'therapy') {
+        const treatment = treatments.find(item => item.name === value);
+        if (treatment) { next.duration = String(treatment.durationOptions[0]); if (treatment.slug === 'couples-therapy') next.guests = '2'; }
+      }
       return next;
     });
   }
 
-  function touch(name: keyof FormState) { setTouched(prev => new Set(prev).add(name)); }
+  function touch(name: keyof FormState) { setTouched(previous => new Set(previous).add(name)); }
 
   function submit(event: React.FormEvent) {
-    event.preventDefault();
-    setTouched(new Set(Object.keys(initial)));
-    if (hasErrors) return;
-    setSubmitted(true);
+    event.preventDefault(); setTouched(new Set(Object.keys(initial))); if (hasErrors) return; setSubmitted(true);
     if (isConfigured(business.whatsAppNumber)) {
       const number = business.whatsAppNumber.replace(/\D/g, '');
       window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, '_blank', 'noopener,noreferrer');
     }
   }
 
-  async function copyMessage() {
-    await navigator.clipboard.writeText(message);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 1600);
-  }
-
+  async function copyMessage() { await navigator.clipboard.writeText(message); setCopied(true); setTimeout(() => setCopied(false), 1600); }
   const minDate = new Date().toISOString().slice(0, 10);
-  return (
-    <form className="booking-form" onSubmit={submit} noValidate>
-      <div className="form-grid">
-        <Field label="Name" name="name" error={touched.has('name') ? errors.name : undefined}><input id="name" autoComplete="name" value={values.name} onBlur={() => touch('name')} onChange={e => setField('name', e.target.value)} /></Field>
-        <Field label="Mobile Number" name="mobile" error={touched.has('mobile') ? errors.mobile : undefined}><input id="mobile" inputMode="tel" autoComplete="tel" value={values.mobile} onBlur={() => touch('mobile')} onChange={e => setField('mobile', e.target.value)} /></Field>
-        <Field label="Preferred Therapy" name="therapy" error={touched.has('therapy') ? errors.therapy : undefined}><select id="therapy" value={values.therapy} onBlur={() => touch('therapy')} onChange={e => setField('therapy', e.target.value)}><option value="">Choose a treatment</option>{treatments.map(t => <option key={t.slug} value={t.name}>{t.name}</option>)}</select></Field>
-        <Field label="Duration" name="duration" error={touched.has('duration') ? errors.duration : undefined}><select id="duration" value={values.duration} onBlur={() => touch('duration')} onChange={e => setField('duration', e.target.value)}>{[45,60,90,120].map(d => <option value={d} key={d}>{d} minutes</option>)}</select></Field>
-        <Field label="Preferred Date" name="date" error={touched.has('date') ? errors.date : undefined}><input id="date" type="date" min={minDate} value={values.date} onBlur={() => touch('date')} onChange={e => setField('date', e.target.value)} /></Field>
-        <Field label="Preferred Time" name="time" error={touched.has('time') ? errors.time : undefined}><input id="time" type="time" value={values.time} onBlur={() => touch('time')} onChange={e => setField('time', e.target.value)} /></Field>
-        <Field label="Number of Guests" name="guests" error={touched.has('guests') ? errors.guests : undefined}><select id="guests" value={values.guests} onBlur={() => touch('guests')} onChange={e => setField('guests', e.target.value)}>{[1,2,3,4].map(n => <option value={n} key={n}>{n}</option>)}</select></Field>
-        <Field label="Notes / Preferences" name="notes" wide><textarea id="notes" rows={4} value={values.notes} onChange={e => setField('notes', e.target.value)} placeholder="Pressure, aroma, areas to avoid, accessibility needs or other preferences" /></Field>
-      </div>
-      <button className="button button-dark form-submit" type="submit"><MessageCircle size={17}/>{isConfigured(business.whatsAppNumber) ? 'Request via WhatsApp' : 'Prepare Booking Request'}</button>
-      <p className="form-disclaimer">Submitting a request does not confirm an appointment until the spa accepts the preferred time.</p>
-      {submitted ? <div className="form-success" role="status"><Check size={20}/><div><strong>{isConfigured(business.whatsAppNumber) ? 'WhatsApp request prepared.' : 'Your booking request is ready.'}</strong><p>{isConfigured(business.whatsAppNumber) ? 'A WhatsApp window should open with your details prefilled.' : 'The business WhatsApp number has not been configured yet. Copy the request below for now.'}</p>{!isConfigured(business.whatsAppNumber) ? <button type="button" className="copy-button" onClick={copyMessage}><Copy size={15}/>{copied ? 'Copied' : 'Copy request'}</button> : null}</div></div> : null}
-    </form>
-  );
+
+  return <form className="booking-form booking-form-luxury" onSubmit={submit} noValidate>
+    <div className="booking-form-heading"><span>Appointment request</span><strong>01 / 04</strong></div>
+    <fieldset className="form-section"><legend>Your details</legend><div className="form-grid">
+      <Field label="Name" name="name" error={touched.has('name') ? errors.name : undefined}><input id="name" autoComplete="name" value={values.name} onBlur={() => touch('name')} onChange={event => setField('name', event.target.value)} aria-invalid={Boolean(touched.has('name') && errors.name)} /></Field>
+      <Field label="Mobile number" name="mobile" error={touched.has('mobile') ? errors.mobile : undefined}><input id="mobile" inputMode="tel" autoComplete="tel" value={values.mobile} onBlur={() => touch('mobile')} onChange={event => setField('mobile', event.target.value)} aria-invalid={Boolean(touched.has('mobile') && errors.mobile)} /></Field>
+    </div></fieldset>
+    <fieldset className="form-section"><legend>Your experience</legend><div className="form-grid">
+      <Field label="Preferred therapy" name="therapy" error={touched.has('therapy') ? errors.therapy : undefined}><select id="therapy" value={values.therapy} onBlur={() => touch('therapy')} onChange={event => setField('therapy', event.target.value)}><option value="">Choose a treatment</option>{treatments.map(treatment => <option key={treatment.slug} value={treatment.name}>{treatment.name}</option>)}</select></Field>
+      <Field label="Duration" name="duration" error={touched.has('duration') ? errors.duration : undefined}><select id="duration" value={values.duration} onBlur={() => touch('duration')} onChange={event => setField('duration', event.target.value)}>{durationOptions.map(duration => <option value={duration} key={duration}>{duration} minutes</option>)}</select></Field>
+      <Field label="Number of guests" name="guests" error={touched.has('guests') ? errors.guests : undefined}><select id="guests" value={values.guests} onBlur={() => touch('guests')} onChange={event => setField('guests', event.target.value)}>{[1, 2, 3, 4].map(number => <option value={number} key={number}>{number}</option>)}</select></Field>
+    </div></fieldset>
+    <fieldset className="form-section"><legend>Preferred timing</legend><div className="form-grid">
+      <Field label="Preferred date" name="date" error={touched.has('date') ? errors.date : undefined}><input id="date" type="date" min={minDate} value={values.date} onBlur={() => touch('date')} onChange={event => setField('date', event.target.value)} /></Field>
+      <Field label="Preferred time" name="time" error={touched.has('time') ? errors.time : undefined}><input id="time" type="time" value={values.time} onBlur={() => touch('time')} onChange={event => setField('time', event.target.value)} /></Field>
+    </div></fieldset>
+    <fieldset className="form-section"><legend>Anything we should know?</legend><div className="form-grid">
+      <Field label="Preferences or notes" name="notes" wide><textarea id="notes" rows={4} value={values.notes} onChange={event => setField('notes', event.target.value)} placeholder="Pressure, aroma, areas to avoid, accessibility needs or other preferences" /></Field>
+    </div></fieldset>
+    <button className="button button-dark form-submit" type="submit"><MessageCircle size={17}/>{isConfigured(business.whatsAppNumber) ? 'Continue on WhatsApp' : 'Prepare appointment request'}</button>
+    <p className="form-disclaimer">This sends an appointment request. Your preferred time is confirmed separately after availability is checked.</p>
+    {submitted ? <div className="form-success" role="status"><Check size={20}/><div><strong>{isConfigured(business.whatsAppNumber) ? 'Your WhatsApp request is ready.' : 'Your appointment request is ready.'}</strong><p>{isConfigured(business.whatsAppNumber) ? 'WhatsApp should open with the appointment details prefilled.' : 'Contact details are not configured yet, so you can copy the prepared request for now.'}</p>{!isConfigured(business.whatsAppNumber) ? <button type="button" className="copy-button" onClick={copyMessage}><Copy size={15}/>{copied ? 'Copied' : 'Copy request'}</button> : null}</div></div> : null}
+  </form>;
 }
 
 function Field({ label, name, error, children, wide = false }: { label: string; name: string; error?: string; children: React.ReactNode; wide?: boolean }) {

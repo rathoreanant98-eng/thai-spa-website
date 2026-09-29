@@ -1,24 +1,39 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { LuxuryInnerHero } from '@/components/luxury-inner-hero';
 import { SectionHeading } from '@/components/section-heading';
 
-export const metadata: Metadata = { title: 'Experience', description: 'Discover the privacy, personalization, atmosphere and professional standards shaping the spa experience.' };
+export const metadata: Metadata = {
+  title: 'Experience',
+  description: 'Discover the personalization, atmosphere and professional standards shaping a considered Thai-inspired wellness experience.',
+};
 
-const experiences = [
-  ['Private Treatment Settings','A quiet environment where privacy and clear professional boundaries come first.'],
-  ['Couples Experience','Coordinated treatments for two guests, presented as a premium shared wellness ritual.'],
-  ['Aromatherapy','Aromatic blends can be personalized according to preference once actual oils are confirmed.'],
-  ['Personalized Pressure','Gentle, medium or firmer pressure can be discussed before and during treatment.'],
-  ['Fresh Linen','Clean linen and hygienic spaces belong to the operating standard, not a decorative claim.'],
-  ['Hydro / Steam','Jacuzzi, hammam and steam claims remain conditional until the real facilities are verified.'],
+const principles = [
+  ['01', 'Listen first', 'Pressure, pace, temperature and areas to avoid should be easy to discuss before the treatment begins.'],
+  ['02', 'Protect the quiet', 'A calmer experience comes from considered pacing, clear communication and fewer unnecessary interruptions.'],
+  ['03', 'Respect the guest', 'Professional boundaries, discretion and comfort are part of the service—not optional extras.'],
+  ['04', 'Adjust in the moment', 'Preferences can change once a treatment begins. Guests should feel comfortable asking for an adjustment.'],
+  ['05', 'Keep it composed', 'Presentation matters most when it supports cleanliness, order and ease rather than decoration for its own sake.'],
+  ['06', 'Finish unhurried', 'The close of the session should feel as considered as the beginning, with time to reorient before leaving.'],
 ];
 
 export default function ExperiencePage() {
   return <>
-    <section className="inner-hero"><div className="inner-hero-art"><img src="/visuals/ritual.svg" alt=""/></div><div className="site-container inner-hero-content"><p className="eyebrow">The Experience</p><h1>Designed around how you settle in.</h1><p>Atmosphere matters, but the premium feeling comes from consistency: privacy, cleanliness, thoughtful personalization and respectful service.</p></div></section>
-    <section className="page-section"><div className="site-container"><SectionHeading eyebrow="What Shapes the Visit" title="A sanctuary is a system of small details."/><div className="trust-grid !bg-[rgba(23,53,45,.12)]">{experiences.map(([title,copy],i)=><article className="trust-card !bg-transparent !text-ink" key={title}><span className="eyebrow">0{i+1}</span><h3>{title}</h3><p className="!text-[rgba(21,23,20,.62)]">{copy}</p></article>)}</div></div></section>
-    <section className="immersive-banner"><img src="/visuals/sanctuary.svg" alt="Abstract sanctuary artwork"/><div className="site-container immersive-content"><div><p className="eyebrow">Quiet Hospitality</p><h2 className="display-title">Nothing rushed. Nothing performative.</h2></div><p>From the way preferences are discussed to the way a session ends, the experience is designed to feel controlled and calm rather than theatrical.</p></div></section>
-    <section className="page-section stone-section"><div className="site-container"><SectionHeading eyebrow="The Ritual" title="Four stages. One continuous experience."/><div className="ritual-steps">{[['01','ARRIVE','Settle in and leave enough time for preferences.'],['02','PERSONALIZE','Agree on treatment, pressure, aroma and comfort.'],['03','RESTORE','Enjoy the session in a professional private environment.'],['04','RENEW','Finish at a slower pace with time to reorient.']].map(([n,t,d])=><div className="ritual-step" key={n}><span className="step-number">{n}</span><h3>{t}</h3><p>{d}</p></div>)}</div><div className="mt-10"><Link className="button button-dark" href="/contact/#book">Request Appointment <ArrowUpRight size={15}/></Link></div></div></section>
+    <LuxuryInnerHero index="03" eyebrow="The experience" title="The luxury is in what you notice—and what you don’t." intro="A composed wellness experience is built from small decisions: how preferences are discussed, how the pace is set and how comfortably the visit unfolds." image="/visuals/ritual.svg" />
+    <section className="page-section experience-manifesto"><div className="site-container experience-manifesto-grid">
+      <p className="experience-manifesto-statement">A sanctuary is not a list of amenities. It is the feeling that every detail has been considered before you need to ask.</p>
+      <div className="experience-manifesto-copy"><p>The experience begins with listening. A guest should be able to share the pressure they prefer, what they want from the session and anything that would make the treatment more comfortable.</p><p>From there, the best service becomes quieter: professional, responsive and present without feeling performative.</p></div>
+    </div></section>
+    <section className="page-section stone-section"><div className="site-container">
+      <SectionHeading eyebrow="Six principles" title="Small details. Consistent care." intro="The premium feeling is created through standards that support comfort, discretion and a sense of calm."/>
+      <div className="experience-principles">{principles.map(([number,title,copy]) => <article className="experience-principle" key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+    </div></section>
+    <section className="immersive-banner experience-immersive"><img src="/visuals/sanctuary.svg" alt=""/><div className="site-container immersive-content"><div><p className="eyebrow">Quiet hospitality</p><h2 className="display-title">Nothing rushed. Nothing performative.</h2></div><p>From the first conversation to the final quiet minutes, the service should feel measured, respectful and easy to understand.</p></div></section>
+    <section className="page-section"><div className="site-container">
+      <SectionHeading eyebrow="The guest journey" title="One continuous rhythm." />
+      <div className="ritual-steps">{[['01','ARRIVE','Leave enough room to settle and share preferences without rushing.'],['02','PERSONALIZE','Agree on treatment style, pressure, pacing and comfort.'],['03','RESTORE','Let the session unfold with clear communication when needed.'],['04','RETURN','Finish slowly and take a moment before stepping back into the day.']].map(([n,t,d]) => <div className="ritual-step" key={n}><span className="step-number">{n}</span><h3>{t}</h3><p>{d}</p></div>)}</div>
+      <div className="experience-cta-row"><Link className="button button-dark" href="/therapies/">Explore therapies <ArrowUpRight size={15}/></Link><Link className="text-link" href="/contact/#book">Request an appointment <ArrowUpRight size={14}/></Link></div>
+    </div></section>
   </>;
 }

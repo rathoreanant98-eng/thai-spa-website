@@ -1,12 +1,19 @@
 import type { Metadata } from 'next';
 import { GalleryGrid } from '@/components/gallery-grid';
+import { LuxuryInnerHero } from '@/components/luxury-inner-hero';
 import { SectionHeading } from '@/components/section-heading';
 
-export const metadata: Metadata = { title: 'Gallery', description: 'A visual preview of the spa design direction, ready to be replaced with authentic business photography.' };
+export const metadata: Metadata = {
+  title: 'Gallery',
+  description: 'A visual study in warmth, texture and stillness inspired by a premium Thai wellness atmosphere.',
+};
 
 export default function GalleryPage() {
   return <>
-    <section className="inner-hero"><div className="inner-hero-art"><img src="/visuals/gallery-4.svg" alt=""/></div><div className="site-container inner-hero-content"><p className="eyebrow">Gallery</p><h1>Atmosphere, not imitation.</h1><p>These abstract editorial visuals are deliberate placeholders. They avoid falsely presenting rooms, facilities or treatments that have not yet been photographed.</p></div></section>
-    <section className="page-section"><div className="site-container"><SectionHeading eyebrow="Visual Direction" title="Warm materials. Botanical restraint. Quiet contrast." intro="Replace these placeholders with authentic reception, treatment-room, couples, hydro, steam and detail photography once available."/><GalleryGrid/></div></section>
+    <LuxuryInnerHero index="05" eyebrow="Gallery" title="A study in warmth, texture and stillness." intro="Stone, water, botanicals and low light create a visual language designed to feel calm before a treatment even begins." image="/visuals/gallery-4.svg" />
+    <section className="page-section gallery-page-section"><div className="site-container">
+      <div className="gallery-page-intro"><SectionHeading eyebrow="Atmosphere" title="Quiet contrast. Natural texture. A slower visual rhythm." intro="Explore the mood collection in full screen. The final brand photography can drop into this system without changing the experience."/><p className="gallery-aside-note">Select any image to enter the full-screen view.</p></div>
+      <GalleryGrid />
+    </div></section>
   </>;
 }
