@@ -8,7 +8,7 @@ type CinematicHoverMediaProps = {
   enabled?: boolean;
   className?: string;
   loading?: 'eager' | 'lazy';
-  profile?: 'arrival' | 'treatment' | 'thai' | 'aroma' | 'hotstone' | 'couples';
+  profile?: 'arrival' | 'treatment' | 'thai' | 'aroma' | 'hotstone' | 'couples' | 'sensory';
 };
 
 type MotionStyle = CSSProperties & {

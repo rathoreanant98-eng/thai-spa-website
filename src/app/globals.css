@@ -2362,3 +2362,57 @@ p, li {
 .cinematic-hover-media.is-profile-couples.is-active .cinematic-depth {
   opacity: .22;
 }
+
+
+/* Premium sensory-detail profile: tuned for flowing oil, steam, candlelight and metallic reflections. */
+.cinematic-hover-media.is-profile-sensory .cinematic-depth-left {
+  clip-path: polygon(0 0, 39% 0, 43% 100%, 0 100%);
+}
+.cinematic-hover-media.is-profile-sensory .cinematic-depth-right {
+  clip-path: polygon(63% 0, 100% 0, 100% 100%, 70% 100%, 67% 42%);
+}
+.cinematic-hover-media.is-profile-sensory .cinematic-reflection {
+  top: 34%;
+  left: 42%;
+  right: 7%;
+  bottom: 3%;
+  opacity: 0;
+  background:
+    repeating-linear-gradient(
+      178deg,
+      rgba(255,232,186,0) 0px,
+      rgba(255,232,186,.10) 2px,
+      rgba(255,255,255,.025) 5px,
+      rgba(255,197,109,0) 10px
+    );
+  mask-image: radial-gradient(ellipse at 52% 48%, rgba(0,0,0,.82), transparent 72%);
+}
+.cinematic-hover-media.is-profile-sensory.is-active .cinematic-reflection {
+  opacity: .34;
+}
+.cinematic-hover-media.is-profile-sensory .cinematic-candles {
+  background:
+    radial-gradient(circle at 8% 53%, rgba(255,187,76,.31) 0 1.05%, transparent 3.5%),
+    radial-gradient(circle at 24% 20%, rgba(255,193,89,.22) 0 .8%, transparent 3%),
+    radial-gradient(circle at 72% 22%, rgba(255,185,72,.24) 0 .85%, transparent 3.1%),
+    radial-gradient(circle at 89% 58%, rgba(255,181,69,.24) 0 .9%, transparent 3.2%);
+}
+.cinematic-hover-media.is-profile-sensory .cinematic-light-shimmer {
+  background:
+    radial-gradient(
+      circle at var(--cinematic-x) var(--cinematic-y),
+      rgba(255,236,195,.22) 0,
+      rgba(238,184,109,.09) 15%,
+      transparent 39%
+    ),
+    linear-gradient(104deg, rgba(255,218,151,.14) 0%, transparent 47%);
+}
+.cinematic-hover-media.is-profile-sensory.is-active .cinematic-base {
+  transform:
+    translate3d(calc(var(--cinematic-pan-x) * .64), calc(var(--cinematic-pan-y) * .60), 0)
+    scale(1.048);
+  filter: saturate(1.045) contrast(1.018) brightness(1.025);
+}
+.cinematic-hover-media.is-profile-sensory.is-active .cinematic-depth {
+  opacity: .24;
+}

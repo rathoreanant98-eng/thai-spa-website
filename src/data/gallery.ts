@@ -5,7 +5,7 @@ export type GalleryItem = {
   image: string;
   alt: string;
   motion?: boolean;
-  motionProfile?: 'arrival' | 'treatment' | 'thai' | 'aroma' | 'hotstone' | 'couples';
+  motionProfile?: 'arrival' | 'treatment' | 'thai' | 'aroma' | 'hotstone' | 'couples' | 'sensory';
 };
 
 export const galleryItems: GalleryItem[] = [
@@ -63,6 +63,14 @@ export const galleryItems: GalleryItem[] = [
     motion: true,
     motionProfile: 'couples',
   },
-  { id: 7, title: 'Steam & Stone', category: 'Steam ritual', image: '/visuals/gallery-7.svg', alt: 'Abstract steam-inspired composition in stone and muted light' },
+  {
+    id: 7,
+    title: 'Golden Ritual Detail',
+    category: 'Sensory detail',
+    image: '/visuals/premium-detail-sensory-shot.webp',
+    alt: 'Close-up spa ritual detail with warm oil being poured by hand over an ornate bowl with candlelight, flowers and rising steam',
+    motion: true,
+    motionProfile: 'sensory',
+  },
   { id: 8, title: 'Water & Stillness', category: 'Water ritual', image: '/visuals/gallery-8.svg', alt: 'Abstract hydro-inspired composition with calm water-like forms' },
 ];
