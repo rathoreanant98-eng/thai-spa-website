@@ -24,7 +24,7 @@ export default function OurStoryPage() {
       <div className="story-values">{values.map(([number,title,copy]) => <article className="story-value" key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
     </div></section>
     <section className="page-section"><div className="site-container editorial-split story-editorial">
-      <div className="editorial-image"><img src="/visuals/gallery-2.svg" alt="" loading="lazy"/></div>
+      <div className="editorial-image story-editorial-image"><img src="/visuals/our-story-editorial.webp" alt="" loading="lazy" decoding="async"/></div>
       <div className="editorial-copy"><SectionHeading eyebrow="The approach" title="Personal, private and intentionally unhurried."/><p className="body-copy">The strongest luxury experiences rarely need to announce themselves. They are felt in consistency: careful preparation, respectful service and the freedom to personalize what matters to you.</p><div className="attribute-list">{['Thai-inspired treatment craft','Personalized pressure and pace','Respectful professional boundaries','A calm sensory approach','Clear, considered communication'].map((item,index) => <div key={item}><span>0{index+1}</span>{item}</div>)}</div></div>
     </div></section>
     <section className="page-section dark-section"><div className="site-container text-center"><SectionHeading invert align="center" eyebrow="Continue" title="Find the treatment that fits your pace."/><div className="mt-8"><Link className="button button-gold" href="/therapies/">Explore therapies <ArrowUpRight size={15}/></Link></div></div></section>
