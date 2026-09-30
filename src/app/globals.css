@@ -7460,3 +7460,444 @@ p, li {
     gap: 14px;
   }
 }
+
+
+/* Typography system v2 — luxury without unreadable micro-type */
+:root {
+  --type-body: clamp(16px, 0.18vw + 15.4px, 17px);
+  --type-body-large: clamp(17px, 0.28vw + 16px, 19px);
+  --type-ui: 12px;
+  --type-ui-small: 11.5px;
+  --type-caption: 12px;
+  --tracking-ui: .105em;
+  --tracking-micro: .12em;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body), "Helvetica Neue", Arial, sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.72;
+  font-weight: 400;
+  letter-spacing: -.006em;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-body), "Helvetica Neue", Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.display-title,
+.brand-mark {
+  font-optical-sizing: auto;
+}
+
+p,
+li {
+  line-height: 1.75;
+}
+
+/* Core UI text */
+.desktop-nav {
+  font-size: 12px;
+  letter-spacing: .095em;
+  font-weight: 600;
+}
+
+.brand-kicker {
+  font-family: var(--font-body), sans-serif;
+  font-size: 10.5px;
+  line-height: 1.35;
+  letter-spacing: .18em;
+  font-weight: 600;
+  opacity: .78;
+}
+
+.eyebrow,
+.hero-index,
+.therapies-hero-index,
+.experience-hero-index,
+.story-hero-index,
+.spa-guide-hero-index,
+.contact-booking-hero-index,
+.luxury-inner-index,
+.home-atmosphere-index,
+.experience-immersive-index,
+.footer-reserve-index,
+.policy-hero-eyebrow,
+.policy-section-number,
+.footer-label,
+.filter-count,
+.spa-guide-note span,
+.guide-accordion-number,
+.booking-assurance li span,
+.contact-fact span:first-child {
+  font-family: var(--font-body), sans-serif;
+  font-size: 11.5px;
+  line-height: 1.5;
+  letter-spacing: var(--tracking-micro);
+  font-weight: 600;
+}
+
+.button {
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: .105em;
+  font-weight: 650;
+}
+
+.text-link,
+.footer-socials a,
+.footer-small-link,
+.footer-visit-actions a {
+  font-size: 11.5px;
+  line-height: 1.4;
+  letter-spacing: .095em;
+  font-weight: 650;
+}
+
+.hero-scroll {
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  opacity: .76;
+}
+
+.hero-trust div {
+  font-size: 12px;
+  line-height: 1.45;
+  letter-spacing: .08em;
+  color: rgba(244,239,229,.80);
+}
+
+/* Reading text */
+.section-intro,
+.editorial-copy p.body-copy,
+.page-intro-grid .copy,
+.treatment-story-lead,
+.experience-manifesto-copy,
+.policy-section-body p {
+  font-size: var(--type-body-large);
+  line-height: 1.82;
+}
+
+.hero-sub,
+.therapies-hero-lead,
+.experience-hero-lead,
+.story-hero-lead,
+.spa-guide-hero-lead,
+.contact-booking-hero-lead,
+.luxury-inner-intro p {
+  font-size: clamp(16px, .28vw + 15px, 18px);
+  line-height: 1.78;
+}
+
+.dark-section .section-intro,
+.text-ivory .section-intro,
+.hero-sub,
+.therapies-hero-lead,
+.experience-hero-lead,
+.story-hero-lead,
+.spa-guide-hero-lead,
+.contact-booking-hero-lead,
+.luxury-inner-intro p,
+.experience-immersive-aside p,
+.home-atmosphere-aside p {
+  color: rgba(246,240,231,.80);
+}
+
+/* Therapies and metadata */
+.treatment-pressure,
+.treatment-meta,
+.treatment-detail-facts,
+.therapy-index-note,
+.gallery-aside-note {
+  font-size: 11.5px;
+  line-height: 1.5;
+  letter-spacing: .085em;
+}
+
+.treatment-pressure,
+.therapy-index-note,
+.gallery-aside-note {
+  color: rgba(32,26,23,.64);
+}
+
+.treatment-content > p:not(.eyebrow) {
+  font-size: 16px;
+  line-height: 1.78;
+  color: rgba(32,26,23,.73);
+}
+
+.treatment-highlights span {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.filter-row button {
+  min-height: 42px;
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: .09em;
+  font-weight: 600;
+}
+
+.finder-controls legend {
+  font-size: 12px;
+  line-height: 1.45;
+  letter-spacing: .10em;
+  color: rgba(244,239,229,.78);
+}
+
+.choice-grid button {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.finder-note,
+.booking-assurance li p,
+.spa-guide-note p {
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* Forms */
+.form-field label {
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: .09em;
+  color: rgba(32,26,23,.76);
+  font-weight: 650;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.form-disclaimer {
+  font-size: 12px;
+  line-height: 1.65;
+  color: rgba(32,26,23,.65);
+}
+
+.field-error {
+  font-size: 13px;
+}
+
+.contact-fact span:last-child {
+  color: rgba(32,26,23,.74);
+  font-size: 14px;
+}
+
+/* Footer */
+.footer-brand > p:not(.brand-kicker),
+.footer-column li a,
+.footer-contact p,
+.footer-contact a {
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.footer-bottom {
+  font-size: 10.5px;
+  line-height: 1.5;
+  letter-spacing: .09em;
+  color: rgba(246,240,231,.52);
+}
+
+/* Legal and guide detail */
+.policy-status > span {
+  font-size: 11px;
+  letter-spacing: .12em;
+}
+
+.policy-status p {
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.guide-accordion .accordion-panel p {
+  font-size: 16px;
+  line-height: 1.82;
+}
+
+/* Mobile readability floor */
+@media (max-width: 900px) {
+  :root {
+    --type-body: 16px;
+    --type-body-large: 16px;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .brand-kicker {
+    font-size: 11px !important;
+    letter-spacing: .15em !important;
+    opacity: .88;
+  }
+
+  .eyebrow,
+  .hero-index,
+  .therapies-hero-index,
+  .experience-hero-index,
+  .story-hero-index,
+  .spa-guide-hero-index,
+  .contact-booking-hero-index,
+  .luxury-inner-index,
+  .home-atmosphere-index,
+  .experience-immersive-index,
+  .footer-reserve-index,
+  .policy-hero-eyebrow,
+  .policy-section-number,
+  .footer-label,
+  .filter-count,
+  .spa-guide-note span,
+  .guide-accordion-number,
+  .booking-assurance li span,
+  .contact-fact span:first-child {
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+    letter-spacing: .10em !important;
+    font-weight: 650 !important;
+  }
+
+  .button,
+  .text-link,
+  .footer-socials a,
+  .footer-small-link,
+  .footer-visit-actions a {
+    font-size: 12px !important;
+    letter-spacing: .08em !important;
+  }
+
+  .hero-sub,
+  .therapies-hero-lead,
+  .experience-hero-lead,
+  .story-hero-lead,
+  .spa-guide-hero-lead,
+  .contact-booking-hero-lead,
+  .luxury-inner-intro p,
+  .section-intro,
+  .editorial-copy p.body-copy,
+  .page-intro-grid .copy,
+  .treatment-story-lead,
+  .experience-manifesto-copy,
+  .policy-section-body p {
+    font-size: 16px !important;
+    line-height: 1.72 !important;
+  }
+
+  .hero-trust div {
+    font-size: 11.5px !important;
+    line-height: 1.45 !important;
+    letter-spacing: .06em !important;
+    color: rgba(246,240,231,.86) !important;
+  }
+
+  .treatment-pressure,
+  .treatment-meta,
+  .treatment-detail-facts,
+  .therapy-index-note,
+  .gallery-aside-note {
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+    letter-spacing: .065em !important;
+  }
+
+  .treatment-content > p:not(.eyebrow),
+  .guide-accordion .accordion-panel p,
+  .experience-immersive-aside p,
+  .home-atmosphere-aside p,
+  .immersive-content > p {
+    font-size: 16px !important;
+    line-height: 1.72 !important;
+  }
+
+  .treatment-highlights span {
+    font-size: 12px !important;
+  }
+
+  .filter-row button,
+  .finder-controls legend {
+    font-size: 12.5px !important;
+    letter-spacing: .075em !important;
+  }
+
+  .choice-grid button {
+    font-size: 14px !important;
+  }
+
+  .form-field label {
+    font-size: 12.5px !important;
+    letter-spacing: .07em !important;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    font-size: 16px !important;
+  }
+
+  .form-disclaimer,
+  .policy-status p {
+    font-size: 13px !important;
+  }
+
+  .footer-brand > p:not(.brand-kicker),
+  .footer-column li a,
+  .footer-contact p,
+  .footer-contact a,
+  .contact-fact span:last-child {
+    font-size: 14px !important;
+  }
+
+  .footer-bottom {
+    font-size: 11px !important;
+    letter-spacing: .065em !important;
+  }
+
+  .mobile-contact-row {
+    font-size: 12px !important;
+    letter-spacing: .075em !important;
+  }
+
+  .nav-number {
+    font-size: 11.5px !important;
+    letter-spacing: .09em !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .mobile-nav a {
+    font-size: clamp(36px, 10vw, 46px);
+    line-height: 1.02;
+  }
+
+  .brand-mark {
+    font-size: 23px !important;
+  }
+
+  .hero h1,
+  .therapies-hero h1,
+  .experience-hero h1,
+  .story-hero h1,
+  .spa-guide-hero h1,
+  .contact-booking-hero h1,
+  .luxury-inner-content h1 {
+    letter-spacing: -.04em !important;
+  }
+}
