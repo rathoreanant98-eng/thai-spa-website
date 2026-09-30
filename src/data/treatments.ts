@@ -81,7 +81,7 @@ export const treatments: Treatment[] = [
     fullDescription: 'A stronger-pressure massage for guests who prefer firmer, more focused work. The therapist can concentrate on commonly tense areas such as the back, shoulders, neck and legs while continually adjusting pressure to guest preference.',
     durationOptions: [60, 90], startingPrice: null, pressureLevel: 'Firm',
     recommendedFor: ['Guests who prefer stronger pressure', 'Back and shoulder focus', 'General muscular tightness'],
-    highlights: ['Firm pressure', 'Focused areas', 'Pressure check-ins'], image: '/visuals/deep-tissue.svg', featured: true,
+    highlights: ['Firm pressure', 'Focused areas', 'Pressure check-ins'], image: '/visuals/deep-tissue-massage.webp', featured: true,
     bookingLabel: 'Book Deep Tissue',
   },
   {
