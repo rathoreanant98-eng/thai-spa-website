@@ -101,7 +101,7 @@ export const treatments: Treatment[] = [
     fullDescription: 'A premium hammam-inspired wellness ritual that can combine warm steam, cleansing and exfoliation according to the facilities actually available at the spa. The experience is positioned around comfort and refreshed-feeling skin, not detoxification claims.',
     durationOptions: [60, 90], startingPrice: null, pressureLevel: 'Gentle–Medium',
     recommendedFor: ['Ritual-led spa experiences', 'Guests who enjoy steam', 'Skin-refreshing exfoliation'],
-    highlights: ['Warm steam', 'Cleansing', 'Exfoliation'], image: '/visuals/hammam.svg', featured: false,
+    highlights: ['Warm steam', 'Cleansing', 'Exfoliation'], image: '/visuals/cleansing-hammam-ritual.webp', featured: false,
     bookingLabel: 'Book Hammam Ritual',
   },
   {
