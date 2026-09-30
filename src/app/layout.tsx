@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Bodoni_Moda, Manrope } from 'next/font/google';
+import { Bodoni_Moda, DM_Sans } from 'next/font/google';
 import './globals.css';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
@@ -17,10 +17,10 @@ const display = Bodoni_Moda({
   display: 'swap',
 });
 
-const body = Manrope({
+const body = DM_Sans({
   subsets: ['latin'],
   variable: '--font-body',
-  weight: ['400', '500', '600'],
+  weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
