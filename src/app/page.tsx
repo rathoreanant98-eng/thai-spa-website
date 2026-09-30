@@ -122,16 +122,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="immersive-banner">
-        <img src="/visuals/sanctuary.svg" alt="Abstract sanctuary-inspired artwork" loading="lazy"/>
-        <div className="site-container immersive-content">
-          <div>
-            <p className="eyebrow">The atmosphere</p>
-            <h2 className="display-title">Space to lower the volume of the day.</h2>
+      <section className="immersive-banner home-atmosphere-banner" aria-labelledby="home-atmosphere-title">
+        <img src="/visuals/homepage-atmosphere-banner.webp" alt="" loading="lazy" decoding="async"/>
+        <div className="site-container home-atmosphere-content">
+          <div className="home-atmosphere-copy">
+            <div className="home-atmosphere-index"><span>05</span><span>The atmosphere</span></div>
+            <h2 className="display-title" id="home-atmosphere-title">Space to lower <em>the volume of the day.</em></h2>
           </div>
-          <p>
-            The most memorable wellness experiences are often the quietest: considered pacing, respectful service and enough room to settle before anything begins.
-          </p>
+          <div className="home-atmosphere-aside">
+            <span>Quiet by design</span>
+            <p>The most memorable wellness experiences are often the quietest: considered pacing, respectful service and enough room to settle before anything begins.</p>
+          </div>
         </div>
       </section>
 
