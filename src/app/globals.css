@@ -5187,3 +5187,379 @@ p, li {
     transform: none !important;
   }
 }
+
+
+/* Phase 4C/4D — dedicated Contact & Booking hero */
+.contact-booking-hero {
+  position: relative;
+  min-height: max(720px, 90svh);
+  overflow: hidden;
+  isolation: isolate;
+  background: #171210;
+  color: var(--ivory);
+}
+
+.contact-booking-hero-media {
+  position: absolute;
+  inset: -1%;
+  z-index: -2;
+  overflow: hidden;
+  background: #211913;
+}
+
+.contact-booking-hero-media img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 58% 50%;
+  filter: saturate(.90) contrast(1.025) brightness(.85);
+  transform: scale(1.012);
+  animation: contactBookingHeroDrift 24s 1s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.contact-booking-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(16,11,9,.92) 0%,
+      rgba(16,11,9,.84) 25%,
+      rgba(16,11,9,.61) 43%,
+      rgba(16,11,9,.24) 63%,
+      rgba(16,11,9,.06) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(14,9,8,.56) 0%,
+      rgba(14,9,8,.04) 56%,
+      rgba(14,9,8,.13) 100%
+    );
+}
+
+.contact-booking-hero-shell {
+  min-height: max(720px, 90svh);
+  display: grid;
+  grid-template-columns: minmax(0, 690px) 1fr;
+  align-items: end;
+  padding-top: 148px;
+  padding-bottom: 46px;
+}
+
+.contact-booking-hero-copy {
+  width: min(100%, 650px);
+  padding-right: clamp(18px, 3vw, 46px);
+}
+
+.contact-booking-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 23px;
+  color: rgba(246,240,231,.57);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .17em;
+  animation: contactBookingHeroFade .72s .04s cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-booking-breadcrumb a {
+  transition: color .25s ease;
+}
+
+.contact-booking-breadcrumb a:hover {
+  color: var(--ivory);
+}
+
+.contact-booking-hero-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 21px;
+  color: rgba(246,240,231,.59);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  animation: contactBookingHeroFade .78s .10s cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-booking-hero-index::before {
+  content: '';
+  width: 46px;
+  height: 1px;
+  background: rgba(210,176,141,.72);
+}
+
+.contact-booking-hero-index span:first-child {
+  color: var(--bronze-light);
+}
+
+.contact-booking-hero h1 {
+  max-width: 650px;
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(66px, 7vw, 108px);
+  font-weight: 400;
+  line-height: .86;
+  letter-spacing: -.052em;
+  text-wrap: balance;
+  text-shadow: 0 2px 28px rgba(8,5,4,.20);
+  animation: contactBookingHeroFade .86s .16s cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-booking-hero h1 span,
+.contact-booking-hero h1 em {
+  display: block;
+}
+
+.contact-booking-hero h1 em {
+  margin-left: clamp(0px, 3.8vw, 60px);
+  color: #f1e6d9;
+  font-weight: 400;
+}
+
+.contact-booking-hero-lead {
+  max-width: 530px;
+  margin: 27px 0 0 clamp(0px, 3.8vw, 60px);
+  color: rgba(246,240,231,.75);
+  font-size: clamp(15px, 1.04vw, 17px);
+  line-height: 1.82;
+  text-wrap: pretty;
+  animation: contactBookingHeroFade .86s .23s cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-booking-hero-cta {
+  min-height: 54px;
+  margin: 27px 0 0 clamp(0px, 3.8vw, 60px);
+  padding-inline: 27px;
+  border-radius: 999px;
+  background: #c99663;
+  color: #1d1612;
+  box-shadow: 0 14px 34px rgba(9,6,5,.16);
+  animation: contactBookingHeroFade .86s .29s cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-booking-hero-cta:hover {
+  background: #d3aa80;
+}
+
+.contact-booking-hero-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 590px;
+  margin: 34px 0 0 clamp(0px, 3.8vw, 60px);
+  border-top: 1px solid rgba(246,240,231,.16);
+  border-bottom: 1px solid rgba(246,240,231,.16);
+  animation: contactBookingHeroFade .86s .35s cubic-bezier(.22,1,.36,1) both;
+}
+
+.contact-booking-hero-steps span {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  color: rgba(246,240,231,.72);
+  font-size: 8px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: .11em;
+}
+
+.contact-booking-hero-steps span:first-child {
+  padding-left: 0;
+}
+
+.contact-booking-hero-steps span + span {
+  border-left: 1px solid rgba(246,240,231,.10);
+}
+
+.contact-booking-hero-steps small {
+  color: var(--bronze-light);
+  font-size: 8px;
+  letter-spacing: .12em;
+}
+
+.contact-booking-hero-note {
+  max-width: 500px;
+  margin: 17px 0 0 clamp(0px, 3.8vw, 60px);
+  color: rgba(246,240,231,.49);
+  font-size: 10px;
+  line-height: 1.65;
+  letter-spacing: .02em;
+  animation: contactBookingHeroFade .86s .40s cubic-bezier(.22,1,.36,1) both;
+}
+
+@keyframes contactBookingHeroDrift {
+  from {
+    transform: scale(1.012) translate3d(0,0,0);
+  }
+  to {
+    transform: scale(1.035) translate3d(-.14%, -.08%, 0);
+  }
+}
+
+@keyframes contactBookingHeroFade {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 980px) {
+  .contact-booking-hero,
+  .contact-booking-hero-shell {
+    min-height: max(720px, 86svh);
+  }
+
+  .contact-booking-hero-media img {
+    object-position: 62% 50%;
+  }
+
+  .contact-booking-hero-shell {
+    grid-template-columns: minmax(0, 600px) 1fr;
+    padding-top: 130px;
+    padding-bottom: 38px;
+  }
+
+  .contact-booking-hero h1 {
+    font-size: clamp(60px, 8.4vw, 84px);
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-booking-hero::before {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(15,10,8,.93) 0%,
+        rgba(15,10,8,.83) 44%,
+        rgba(15,10,8,.34) 72%,
+        rgba(15,10,8,.10) 100%
+      );
+  }
+
+  .contact-booking-hero-shell {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .contact-booking-hero-copy {
+    width: 100%;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .contact-booking-hero,
+  .contact-booking-hero-shell {
+    min-height: max(780px, 84svh);
+  }
+
+  .contact-booking-hero-media {
+    inset: 0;
+  }
+
+  .contact-booking-hero-media img {
+    object-position: 61% 38%;
+    filter: saturate(.88) contrast(1.02) brightness(.75);
+    animation-duration: 28s;
+  }
+
+  .contact-booking-hero-shell {
+    padding-top: 108px;
+    padding-bottom: 28px;
+  }
+
+  .contact-booking-breadcrumb {
+    margin-bottom: 17px;
+  }
+
+  .contact-booking-hero-index {
+    margin-bottom: 16px;
+  }
+
+  .contact-booking-hero-index::before {
+    width: 32px;
+  }
+
+  .contact-booking-hero h1 {
+    max-width: 350px;
+    font-size: clamp(50px, 14.5vw, 64px);
+    line-height: .88;
+  }
+
+  .contact-booking-hero h1 em,
+  .contact-booking-hero-lead,
+  .contact-booking-hero-cta,
+  .contact-booking-hero-steps,
+  .contact-booking-hero-note {
+    margin-left: 0;
+  }
+
+  .contact-booking-hero-lead {
+    max-width: 345px;
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.72;
+  }
+
+  .contact-booking-hero-cta {
+    width: 100%;
+    max-width: 345px;
+    min-height: 52px;
+    margin-top: 22px;
+  }
+
+  .contact-booking-hero-steps {
+    grid-template-columns: 1fr;
+    max-width: 330px;
+    margin-top: 23px;
+  }
+
+  .contact-booking-hero-steps span {
+    min-height: 41px;
+    padding: 0;
+  }
+
+  .contact-booking-hero-steps span + span {
+    border-left: 0;
+    border-top: 1px solid rgba(246,240,231,.10);
+  }
+
+  .contact-booking-hero-note {
+    max-width: 330px;
+    margin-top: 14px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-booking-hero-media img {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .contact-booking-breadcrumb,
+  .contact-booking-hero-index,
+  .contact-booking-hero h1,
+  .contact-booking-hero-lead,
+  .contact-booking-hero-cta,
+  .contact-booking-hero-steps,
+  .contact-booking-hero-note {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
