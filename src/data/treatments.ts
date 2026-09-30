@@ -111,7 +111,7 @@ export const treatments: Treatment[] = [
     fullDescription: 'A premium combination experience designed around aromatic oils, massage and private hydro relaxation where the business confirms a Jacuzzi facility. It is intentionally configured so the facility claim can be removed if it is not part of the real operation.',
     durationOptions: [60, 90, 120], startingPrice: null, pressureLevel: 'Personalized',
     recommendedFor: ['Longer premium bookings', 'Guests seeking hydro relaxation', 'Special occasions'],
-    highlights: ['Aromatic oils', 'Extended duration', 'Private hydro experience'], image: '/visuals/jacuzzi.svg', featured: true,
+    highlights: ['Aromatic oils', 'Extended duration', 'Private hydro experience'], image: '/visuals/oil-jacuzzi-sanctuary.webp', featured: true,
     bookingLabel: 'Book Oil + Jacuzzi',
   },
   {
