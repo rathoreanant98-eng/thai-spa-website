@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { LuxuryInnerHero } from '@/components/luxury-inner-hero';
+import { OurStoryHero } from '@/components/our-story-hero';
 import { SectionHeading } from '@/components/section-heading';
 
 export const metadata: Metadata = {
@@ -17,8 +17,8 @@ const values = [
 
 export default function OurStoryPage() {
   return <>
-    <LuxuryInnerHero index="04" eyebrow="Our point of view" title="Wellness begins with attention." intro="The philosophy is simple: listen carefully, work with intention and create enough quiet for the guest to settle into the experience." image="/visuals/sanctuary.svg" />
-    <section className="page-section story-opening"><div className="site-container page-intro-grid"><p className="lead">Thai-inspired wellness is most compelling when treatment craft, hospitality and personal comfort are treated with equal respect.</p><div className="copy"><p>There is no single pressure, pace or ritual that suits everyone. The starting point is a conversation about what you enjoy, what you would rather avoid and how you want the session to feel.</p><p>The environment should support the same idea: considered light, clear communication, an uncluttered sense of order and service that remains professional throughout.</p></div></div></section>
+    <OurStoryHero />
+    <section className="page-section story-opening" id="story-philosophy"><div className="site-container page-intro-grid"><p className="lead">Thai-inspired wellness is most compelling when treatment craft, hospitality and personal comfort are treated with equal respect.</p><div className="copy"><p>There is no single pressure, pace or ritual that suits everyone. The starting point is a conversation about what you enjoy, what you would rather avoid and how you want the session to feel.</p><p>The environment should support the same idea: considered light, clear communication, an uncluttered sense of order and service that remains professional throughout.</p></div></div></section>
     <section className="page-section stone-section"><div className="site-container">
       <SectionHeading eyebrow="Three principles" title="A quieter definition of premium." />
       <div className="story-values">{values.map(([number,title,copy]) => <article className="story-value" key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
