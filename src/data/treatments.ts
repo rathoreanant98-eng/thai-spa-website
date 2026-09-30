@@ -71,7 +71,7 @@ export const treatments: Treatment[] = [
     fullDescription: 'A classic full-body oil massage using smooth, flowing movements at gentle-to-medium pressure. It is a comfortable choice for visitors seeking a familiar relaxation experience or their first spa treatment.',
     durationOptions: [60, 90], startingPrice: null, pressureLevel: 'Gentle–Medium',
     recommendedFor: ['Overall relaxation', 'Lighter pressure', 'First spa experience'],
-    highlights: ['Flowing movements', 'Comfortable pressure', 'Full-body treatment'], image: '/visuals/swedish.svg', featured: false,
+    highlights: ['Flowing movements', 'Comfortable pressure', 'Full-body treatment'], image: '/visuals/classic-swedish-massage.webp', featured: false,
     bookingLabel: 'Book Swedish Massage',
   },
   {
