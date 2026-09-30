@@ -91,7 +91,7 @@ export const treatments: Treatment[] = [
     fullDescription: 'A premium side-by-side wellness experience for two guests, with coordinated therapy, personalized pressure and aromatherapy preferences. The experience is designed to feel private, polished and occasion-worthy without sexualized presentation.',
     durationOptions: [60, 90], startingPrice: null, pressureLevel: 'Personalized',
     recommendedFor: ['Two guests booking together', 'Special occasions', 'A shared relaxation experience'],
-    highlights: ['Two-guest booking', 'Coordinated therapy', 'Aromatherapy options'], image: '/visuals/couples.svg', featured: true,
+    highlights: ['Two-guest booking', 'Coordinated therapy', 'Aromatherapy options'], image: '/visuals/couples-luxury-therapy.webp', featured: true,
     bookingLabel: 'Book Couples Therapy',
   },
   {
