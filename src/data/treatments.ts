@@ -41,7 +41,7 @@ export const treatments: Treatment[] = [
     fullDescription: 'A relaxing oil-based treatment using aromatic essential-oil blends selected to create a soothing sensory environment. Gentle flowing movements are designed to help guests unwind and settle into a quieter pace.',
     durationOptions: [60, 90], startingPrice: null, pressureLevel: 'Gentle–Medium',
     recommendedFor: ['Deep relaxation', 'First-time spa guests', 'Guests who prefer lighter pressure'],
-    highlights: ['Aromatic oils', 'Slow-flowing movements', 'Sensory calm'], image: '/visuals/aroma.svg', featured: true,
+    highlights: ['Aromatic oils', 'Slow-flowing movements', 'Sensory calm'], image: '/visuals/aroma-therapy-massage-single.webp', featured: true,
     bookingLabel: 'Book Aroma Therapy',
   },
   {
