@@ -1,3 +1,36 @@
 import type { Metadata } from 'next';
-export const metadata: Metadata = { title: 'Privacy Policy' };
-export default function PrivacyPage(){return <><section className="inner-hero !min-h-[54svh]"><div className="site-container inner-hero-content"><p className="eyebrow">Legal</p><h1>Privacy Policy</h1></div></section><section className="page-section"><div className="site-container policy-copy"><p className="policy-warning"><strong>Owner action required:</strong> this page is a publishing framework, not a finalized legal policy. The actual business data practices, analytics, booking tools and contact channels must be confirmed before launch.</p><h2>Information collected</h2><p>The booking form is designed to collect the guest details required to prepare an appointment request: name, mobile number, treatment preference, date, time, guest count and optional notes.</p><h2>How information is used</h2><p>Once the final booking channel is configured, information should be used only for handling appointment requests, customer communication and legitimate business administration as described in the final policy.</p><h2>Third-party services</h2><p>Any final use of WhatsApp, analytics, maps, advertising pixels or other third-party tools must be listed here with accurate links and data-handling information.</p><h2>Contact</h2><p>The business owner must add the correct privacy contact details before publication.</p></div></section></>}
+import { PolicyPageLayout } from '@/components/policy-page-layout';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Privacy information for appointment requests and spa communications.',
+};
+
+export default function PrivacyPage() {
+  return (
+    <PolicyPageLayout
+      eyebrow="Legal"
+      title="Privacy Policy"
+      intro="A clear account of the information used to handle appointment requests and communicate with guests."
+      status="The final business data practices, analytics tools, booking channels and privacy contact details still need to be confirmed before public launch."
+      sections={[
+        {
+          title: 'Information collected',
+          body: <p>The booking experience is designed to collect the details needed to prepare an appointment request: name, mobile number, treatment preference, preferred date and time, guest count and any optional notes you choose to provide.</p>,
+        },
+        {
+          title: 'How information is used',
+          body: <p>Once the final booking channel is configured, submitted information should be used only for appointment handling, guest communication and legitimate business administration as described in the finalized policy.</p>,
+        },
+        {
+          title: 'Third-party services',
+          body: <p>Any final use of WhatsApp, analytics, maps, advertising tools or other third-party services must be documented here accurately, including the relevant data-handling information and links.</p>,
+        },
+        {
+          title: 'Retention and contact',
+          body: <p>The business owner must confirm how long booking information is retained, how deletion or access requests are handled and which contact details should be used for privacy enquiries.</p>,
+        },
+      ]}
+    />
+  );
+}
