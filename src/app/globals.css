@@ -6920,3 +6920,543 @@ p, li {
     object-position: center !important;
   }
 }
+
+
+/* Mobile hardening pass — based on real Android screenshots.
+   Use a generous <=900px breakpoint because some mobile browsers expose
+   a wider CSS layout viewport than expected. Prevent desktop-density UI
+   from being compressed into a phone screen. */
+@media (max-width: 900px) {
+  /* Global mobile readability */
+  body {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .site-container {
+    width: min(calc(100% - 32px), var(--container));
+  }
+
+  .eyebrow,
+  .hero-index,
+  .therapies-hero-index,
+  .experience-hero-index,
+  .story-hero-index,
+  .spa-guide-hero-index,
+  .contact-booking-hero-index,
+  .luxury-inner-index,
+  .home-atmosphere-index,
+  .experience-immersive-index,
+  .footer-reserve-index,
+  .policy-hero-eyebrow,
+  .policy-section-number {
+    font-size: 10.5px !important;
+    line-height: 1.5;
+    letter-spacing: .18em !important;
+  }
+
+  .brand-kicker {
+    font-size: 9.5px !important;
+    letter-spacing: .22em !important;
+    opacity: .82;
+  }
+
+  .brand-mark {
+    font-size: 24px !important;
+    line-height: .96;
+  }
+
+  .header-inner {
+    height: 76px;
+  }
+
+  .is-compact .header-inner {
+    height: 68px;
+  }
+
+  .menu-button {
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button {
+    min-height: 50px;
+    font-size: 11px;
+    letter-spacing: .12em;
+  }
+
+  .text-link {
+    font-size: 10.5px;
+    letter-spacing: .11em;
+  }
+
+  /* Force homepage hero into mobile image-first composition. */
+  .hero {
+    min-height: 0 !important;
+    display: block !important;
+    background: #120e0c;
+  }
+
+  .hero::before {
+    display: none !important;
+  }
+
+  .hero-media {
+    position: relative !important;
+    inset: auto !important;
+    width: 100%;
+    height: auto !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .hero-media img {
+    position: relative !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+    animation: none !important;
+    filter: saturate(.92) contrast(1.02) brightness(.88) !important;
+  }
+
+  .hero-media::after {
+    background: linear-gradient(0deg, rgba(18,14,12,.22), transparent 55%) !important;
+  }
+
+  .hero-content {
+    padding-top: 34px !important;
+    padding-bottom: 46px !important;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-note {
+    display: none !important;
+  }
+
+  .hero h1 {
+    max-width: 360px;
+    font-size: clamp(52px, 14vw, 68px) !important;
+    line-height: .89 !important;
+  }
+
+  .hero-title-em,
+  .hero-sub,
+  .hero-actions {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+  }
+
+  .hero-sub {
+    max-width: 355px;
+    margin-top: 22px !important;
+    color: rgba(246,240,231,.82) !important;
+    font-size: 15px !important;
+    line-height: 1.72;
+  }
+
+  .hero-actions {
+    width: 100%;
+    max-width: 355px;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .hero-trust {
+    grid-template-columns: 1fr 1fr !important;
+    margin-top: 32px !important;
+  }
+
+  .hero-trust div {
+    min-height: 48px;
+    padding: 13px 8px 0 0 !important;
+    color: rgba(246,240,231,.78) !important;
+    font-size: 9.5px !important;
+    line-height: 1.45;
+    letter-spacing: .08em !important;
+  }
+
+  /* All dedicated full-bleed heroes become photo-first. */
+  .therapies-hero,
+  .experience-hero,
+  .story-hero,
+  .spa-guide-hero,
+  .contact-booking-hero,
+  .luxury-inner-hero {
+    min-height: 0 !important;
+    display: block !important;
+    background: #171210;
+  }
+
+  .therapies-hero::before,
+  .experience-hero::before,
+  .story-hero::before,
+  .spa-guide-hero::before,
+  .contact-booking-hero::before,
+  .luxury-inner-hero::before {
+    display: none !important;
+  }
+
+  .therapies-hero-media,
+  .experience-hero-media,
+  .story-hero-media,
+  .spa-guide-hero-media,
+  .contact-booking-hero-media,
+  .luxury-inner-media {
+    position: relative !important;
+    inset: auto !important;
+    z-index: 0 !important;
+    width: 100%;
+    height: auto !important;
+    overflow: hidden;
+  }
+
+  .therapies-hero-media img,
+  .experience-hero-media img,
+  .story-hero-media img,
+  .spa-guide-hero-media img,
+  .contact-booking-hero-media img,
+  .luxury-inner-media img {
+    position: relative !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+    animation: none !important;
+    filter: saturate(.92) contrast(1.02) brightness(.90) !important;
+  }
+
+  .therapies-hero-content,
+  .experience-hero-shell,
+  .story-hero-shell,
+  .spa-guide-hero-shell,
+  .contact-booking-hero-shell,
+  .luxury-inner-content {
+    min-height: 0 !important;
+    display: block !important;
+    padding-top: 30px !important;
+    padding-bottom: 48px !important;
+  }
+
+  .experience-hero-copy,
+  .story-hero-copy,
+  .spa-guide-hero-copy,
+  .contact-booking-hero-copy {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  .therapies-hero h1,
+  .experience-hero h1,
+  .story-hero h1,
+  .spa-guide-hero h1,
+  .contact-booking-hero h1,
+  .luxury-inner-content h1 {
+    max-width: 370px;
+    font-size: clamp(50px, 13.5vw, 66px) !important;
+    line-height: .90 !important;
+  }
+
+  .therapies-hero h1 em,
+  .experience-hero h1 em,
+  .story-hero h1 em,
+  .contact-booking-hero h1 em {
+    margin-left: 0 !important;
+  }
+
+  .therapies-hero-lead,
+  .experience-hero-lead,
+  .story-hero-lead,
+  .spa-guide-hero-lead,
+  .contact-booking-hero-lead,
+  .luxury-inner-intro p {
+    max-width: 365px;
+    color: rgba(246,240,231,.82) !important;
+    font-size: 15px !important;
+    line-height: 1.72 !important;
+  }
+
+  .luxury-inner-intro {
+    grid-template-columns: 1fr !important;
+    gap: 11px !important;
+    margin: 22px 0 0 !important;
+  }
+
+  .luxury-inner-rule {
+    width: 44px;
+  }
+
+  /* Treatment cards: unequivocally stack on mobile/tablet and enlarge micro-type. */
+  .treatment-card,
+  .treatment-card.feature-card,
+  .treatment-card:nth-child(even),
+  .treatment-card:nth-child(even).feature-card {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    min-height: 0 !important;
+    gap: 0 !important;
+  }
+
+  .treatment-card:nth-child(even) .treatment-image {
+    order: 0 !important;
+  }
+
+  .treatment-image {
+    width: 100%;
+    min-height: 0 !important;
+    height: auto !important;
+    aspect-ratio: auto !important;
+  }
+
+  .treatment-image img {
+    position: relative !important;
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  .treatment-number {
+    top: 16px !important;
+    left: 16px !important;
+    font-size: 42px !important;
+  }
+
+  .signature-badge {
+    top: 16px !important;
+    right: 16px !important;
+    font-size: 9.5px !important;
+  }
+
+  .treatment-content {
+    padding: 26px 0 0 !important;
+  }
+
+  .treatment-kicker-row {
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .treatment-kicker-row .eyebrow {
+    margin-bottom: 16px;
+    max-width: 68%;
+  }
+
+  .treatment-pressure {
+    margin: 1px 0 0 !important;
+    color: rgba(32,26,23,.68) !important;
+    font-size: 10px !important;
+    line-height: 1.45;
+    letter-spacing: .10em !important;
+    white-space: normal !important;
+    text-align: right;
+  }
+
+  .treatment-content h3 {
+    max-width: 390px;
+    font-size: clamp(38px, 10vw, 48px) !important;
+    line-height: .96 !important;
+  }
+
+  .treatment-content > p:not(.eyebrow) {
+    margin: 17px 0 20px !important;
+    max-width: 390px;
+    color: rgba(32,26,23,.74) !important;
+    font-size: 15px !important;
+    line-height: 1.72 !important;
+  }
+
+  .treatment-meta {
+    gap: 9px 16px;
+    padding: 14px 0 !important;
+    color: rgba(32,26,23,.70) !important;
+    font-size: 10.5px !important;
+    line-height: 1.5;
+    letter-spacing: .08em !important;
+  }
+
+  .treatment-highlights {
+    gap: 7px;
+    margin-top: 16px !important;
+  }
+
+  .treatment-highlights span {
+    padding: 7px 10px !important;
+    color: rgba(32,26,23,.72) !important;
+    font-size: 10.5px !important;
+    line-height: 1.35;
+  }
+
+  .card-actions {
+    margin-top: 24px !important;
+  }
+
+  .card-actions .text-link {
+    font-size: 10.5px !important;
+  }
+
+  /* Section supporting copy */
+  .section-intro,
+  .therapy-index-note,
+  .finder-note {
+    font-size: 15px !important;
+    line-height: 1.72 !important;
+  }
+
+  .therapy-index-note {
+    padding-left: 16px;
+    color: rgba(32,26,23,.65) !important;
+    font-size: 10.5px !important;
+    line-height: 1.65 !important;
+  }
+
+  /* Treatment details */
+  .treatment-detail-hero {
+    display: block !important;
+    min-height: 0 !important;
+  }
+
+  .treatment-detail-media {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  .treatment-detail-media img {
+    width: 100%;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+
+  .treatment-detail-copy {
+    padding: 38px 18px 54px !important;
+  }
+
+  .treatment-detail-copy h1 {
+    font-size: clamp(48px, 13vw, 64px) !important;
+  }
+
+  .treatment-detail-lead {
+    color: rgba(246,240,231,.80) !important;
+    font-size: 15px !important;
+    line-height: 1.75 !important;
+  }
+
+  .treatment-detail-facts {
+    color: rgba(246,240,231,.72) !important;
+    font-size: 10.5px !important;
+    letter-spacing: .09em !important;
+  }
+
+  /* Architectural banners */
+  .experience-immersive,
+  .home-atmosphere-banner,
+  .immersive-banner {
+    display: block !important;
+    min-height: 0 !important;
+  }
+
+  .experience-immersive::after,
+  .home-atmosphere-banner::after {
+    display: none !important;
+  }
+
+  .experience-immersive > img,
+  .home-atmosphere-banner > img,
+  .immersive-banner > img {
+    position: relative !important;
+    inset: auto !important;
+    width: 100%;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .experience-immersive-content,
+  .home-atmosphere-content,
+  .immersive-content {
+    min-height: 0 !important;
+    grid-template-columns: 1fr !important;
+    gap: 26px !important;
+    padding-top: 30px !important;
+    padding-bottom: 46px !important;
+  }
+
+  .experience-immersive-aside p,
+  .home-atmosphere-aside p,
+  .immersive-content > p {
+    color: rgba(246,240,231,.80) !important;
+    font-size: 15px !important;
+    line-height: 1.72 !important;
+  }
+
+  /* Mobile action bar: readable, tappable labels. */
+  .mobile-action-bar a,
+  .mobile-action-bar > span {
+    min-height: 56px;
+    font-size: 10px !important;
+    line-height: 1.35;
+    letter-spacing: .08em !important;
+  }
+
+  /* Footer small type */
+  .footer-label,
+  .footer-socials a,
+  .footer-small-link,
+  .footer-visit-actions a,
+  .footer-bottom {
+    font-size: 10px !important;
+  }
+
+  .footer-column li a,
+  .footer-contact p,
+  .footer-contact a,
+  .footer-brand > p:not(.brand-kicker) {
+    font-size: 13px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-container {
+    width: min(calc(100% - 28px), var(--container));
+  }
+
+  .hero-trust {
+    grid-template-columns: 1fr !important;
+  }
+
+  .treatment-kicker-row {
+    display: block !important;
+  }
+
+  .treatment-kicker-row .eyebrow {
+    max-width: none;
+  }
+
+  .treatment-pressure {
+    text-align: left;
+    margin: -7px 0 16px !important;
+  }
+
+  .card-actions {
+    gap: 14px;
+  }
+}
