@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { LuxuryInnerHero } from '@/components/luxury-inner-hero';
+import { TherapiesHero } from '@/components/therapies-hero';
 import { SectionHeading } from '@/components/section-heading';
 import { TreatmentFilters } from '@/components/treatment-filters';
 import { TreatmentFinder } from '@/components/treatment-finder';
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 export default function TherapiesPage() {
   return <>
-    <LuxuryInnerHero index="02" eyebrow="Therapies" title="Treatments shaped around how you want to feel." intro="Begin with pressure, pace and the kind of experience you are looking for. Every treatment can start with a clear conversation about comfort and preferences." image="/visuals/hero.svg" />
-    <section className="page-section therapy-index-section"><div className="site-container">
+    <TherapiesHero />
+    <section className="page-section therapy-index-section" id="therapy-collection"><div className="site-container">
       <div className="therapy-index-intro"><SectionHeading eyebrow="The treatment collection" title="Choose the experience. Personalize the details." intro="Explore the complete menu by treatment style, then open any therapy for duration, pressure and experience guidance."/><p className="therapy-index-note">10 considered experiences · individual and shared rituals</p></div>
       <TreatmentFilters />
     </div></section>
