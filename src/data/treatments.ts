@@ -61,7 +61,7 @@ export const treatments: Treatment[] = [
     fullDescription: 'Smooth heated stones become part of a measured massage ritual designed around warmth, comfort and deep relaxation. Temperature and pressure can be personalized throughout the experience.',
     durationOptions: [60, 90], startingPrice: null, pressureLevel: 'Medium',
     recommendedFor: ['Guests who enjoy warmth', 'Tired muscles', 'A premium sensory ritual'],
-    highlights: ['Heated stones', 'Temperature preferences', 'Slow relaxation'], image: '/visuals/hot-stone.svg', featured: false,
+    highlights: ['Heated stones', 'Temperature preferences', 'Slow relaxation'], image: '/visuals/thermo-stone-therapy.webp', featured: false,
     bookingLabel: 'Book Hot Stone Therapy',
   },
   {
