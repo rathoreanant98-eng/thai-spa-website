@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { ArrowUpRight, MessageCircle, Phone, MapPin, Clock3 } from 'lucide-react';
 import { BookingForm } from '@/components/booking-form';
-import { LuxuryInnerHero } from '@/components/luxury-inner-hero';
+import { ContactBookingHero } from '@/components/contact-booking-hero';
 import { SectionHeading } from '@/components/section-heading';
 import { business } from '@/data/business';
 import { isConfigured } from '@/lib/config';
@@ -17,7 +17,7 @@ export default function ContactPage() {
   const hasContactFacts = phoneReady || waReady || addressReady || hoursReady || mapReady;
 
   return <>
-    <LuxuryInnerHero index="07" eyebrow="Booking & enquiries" title="Reserve time for yourself." intro="Choose your preferred treatment, duration, date and time. The request is reviewed before the appointment is confirmed." image="/visuals/gallery-1.svg" />
+    <ContactBookingHero />
     <section className="page-section booking-page-section" id="book"><div className="site-container booking-page-layout">
       <div className="booking-page-intro">
         <SectionHeading eyebrow="Request an appointment" title="Tell us how you would like to unwind." intro="Share the essentials now. Pressure, comfort and other preferences can be discussed in more detail when your appointment is confirmed."/>
