@@ -29,7 +29,19 @@ export default function ExperiencePage() {
       <SectionHeading eyebrow="Six principles" title="Small details. Consistent care." intro="The premium feeling is created through standards that support comfort, discretion and a sense of calm."/>
       <div className="experience-principles">{principles.map(([number,title,copy]) => <article className="experience-principle" key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
     </div></section>
-    <section className="immersive-banner experience-immersive"><img src="/visuals/sanctuary.svg" alt=""/><div className="site-container immersive-content"><div><p className="eyebrow">Quiet hospitality</p><h2 className="display-title">Nothing rushed. Nothing performative.</h2></div><p>From the first conversation to the final quiet minutes, the service should feel measured, respectful and easy to understand.</p></div></section>
+    <section className="immersive-banner experience-immersive" aria-labelledby="experience-immersive-title">
+      <img src="/visuals/experience-immersive-banner.webp" alt="" loading="lazy" decoding="async"/>
+      <div className="site-container experience-immersive-content">
+        <div className="experience-immersive-copy">
+          <div className="experience-immersive-index"><span>04</span><span>Quiet hospitality</span></div>
+          <h2 className="display-title" id="experience-immersive-title">Nothing rushed. <em>Nothing performative.</em></h2>
+        </div>
+        <div className="experience-immersive-aside">
+          <span>Considered from arrival to return</span>
+          <p>From the first conversation to the final quiet minutes, the service should feel measured, respectful and easy to understand.</p>
+        </div>
+      </div>
+    </section>
     <section className="page-section"><div className="site-container">
       <SectionHeading eyebrow="The guest journey" title="One continuous rhythm." />
       <div className="ritual-steps">{[['01','ARRIVE','Leave enough room to settle and share preferences without rushing.'],['02','PERSONALIZE','Agree on treatment style, pressure, pacing and comfort.'],['03','RESTORE','Let the session unfold with clear communication when needed.'],['04','RETURN','Finish slowly and take a moment before stepping back into the day.']].map(([n,t,d]) => <div className="ritual-step" key={n}><span className="step-number">{n}</span><h3>{t}</h3><p>{d}</p></div>)}</div>
