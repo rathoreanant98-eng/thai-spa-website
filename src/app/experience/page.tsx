@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
-import { LuxuryInnerHero } from '@/components/luxury-inner-hero';
+import { ExperienceHero } from '@/components/experience-hero';
 import { SectionHeading } from '@/components/section-heading';
 
 export const metadata: Metadata = {
@@ -20,12 +20,12 @@ const principles = [
 
 export default function ExperiencePage() {
   return <>
-    <LuxuryInnerHero index="03" eyebrow="The experience" title="The luxury is in what you notice—and what you don’t." intro="A composed wellness experience is built from small decisions: how preferences are discussed, how the pace is set and how comfortably the visit unfolds." image="/visuals/ritual.svg" />
+    <ExperienceHero />
     <section className="page-section experience-manifesto"><div className="site-container experience-manifesto-grid">
       <p className="experience-manifesto-statement">A sanctuary is not a list of amenities. It is the feeling that every detail has been considered before you need to ask.</p>
       <div className="experience-manifesto-copy"><p>The experience begins with listening. A guest should be able to share the pressure they prefer, what they want from the session and anything that would make the treatment more comfortable.</p><p>From there, the best service becomes quieter: professional, responsive and present without feeling performative.</p></div>
     </div></section>
-    <section className="page-section stone-section"><div className="site-container">
+    <section className="page-section stone-section" id="experience-principles"><div className="site-container">
       <SectionHeading eyebrow="Six principles" title="Small details. Consistent care." intro="The premium feeling is created through standards that support comfort, discretion and a sense of calm."/>
       <div className="experience-principles">{principles.map(([number,title,copy]) => <article className="experience-principle" key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
     </div></section>
