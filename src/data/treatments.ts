@@ -121,7 +121,7 @@ export const treatments: Treatment[] = [
     fullDescription: 'The house signature is designed as a distinctive combination ritual that can bring together heated stones, aromatic oils, Thai-inspired stretching and personalized pressure. Its final sequence should be aligned with the treatments the business actually offers.',
     durationOptions: [60, 90], startingPrice: null, pressureLevel: 'Personalized',
     recommendedFor: ['A complete premium experience', 'Guests who want variety in one session', 'First-time visitors seeking a signature treatment'],
-    highlights: ['Signature sequence', 'Personalized pressure', 'Multiple sensory elements'], image: '/visuals/signature.svg', featured: true,
+    highlights: ['Signature sequence', 'Personalized pressure', 'Multiple sensory elements'], image: '/visuals/signature-ritual.webp', featured: true,
     bookingLabel: 'Book Signature Ritual', signature: true,
   },
 ];
