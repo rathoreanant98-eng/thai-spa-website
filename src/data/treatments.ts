@@ -51,7 +51,7 @@ export const treatments: Treatment[] = [
     fullDescription: 'A focused treatment primarily involving the feet, using considered pressure and massage techniques to create a calming, restorative-feeling experience. It is presented as wellness care rather than treatment for medical conditions.',
     durationOptions: [45, 60], startingPrice: null, pressureLevel: 'Medium',
     recommendedFor: ['Tired feet', 'After travel or long days', 'A focused shorter session'],
-    highlights: ['Foot-focused care', 'Targeted pressure', 'Calm finish'], image: '/visuals/reflexology.svg', featured: false,
+    highlights: ['Foot-focused care', 'Targeted pressure', 'Calm finish'], image: '/visuals/reflexology-therapy.webp', featured: false,
     bookingLabel: 'Book Reflexology',
   },
   {
