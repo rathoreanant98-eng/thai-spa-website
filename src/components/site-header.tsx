@@ -7,6 +7,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { business } from '@/data/business';
 import { navigation } from '@/data/navigation';
 import { displayBrandName, isConfigured } from '@/lib/config';
+import { getWhatsAppBookingUrl } from '@/lib/whatsapp';
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -95,9 +96,9 @@ export function SiteHeader() {
           </nav>
 
           <div className="header-actions">
-            <Link className="button button-light header-book" href="/contact/#book">
+            <a className="button button-light header-book" href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer">
               Reserve your time <ArrowUpRight size={15} />
-            </Link>
+            </a>
             <button ref={openButtonRef} className="menu-button" onClick={() => setOpen(true)} aria-label="Open menu" aria-expanded={open} aria-controls="mobile-navigation">
               <Menu size={24} />
             </button>
@@ -136,13 +137,13 @@ export function SiteHeader() {
         </nav>
 
         <div className="mobile-menu-actions">
-          <Link className="button button-gold" href="/contact/#book" onClick={() => closeMenu(false)}>Reserve your time</Link>
+          <a className="button button-gold" href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer" onClick={() => closeMenu(false)}>Reserve your time</a>
           <div className="mobile-contact-row">
             {isConfigured(business.phone)
               ? <a href={`tel:${business.phone}`}><Phone size={18}/> Call</a>
               : <Link href="/contact/" onClick={() => closeMenu(false)}><Phone size={18}/> Enquire</Link>}
             {isConfigured(business.whatsAppNumber)
-              ? <a href={`https://wa.me/${business.whatsAppNumber.replace(/\D/g, '')}`}><MessageCircle size={18}/> WhatsApp</a>
+              ? <a href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer"><MessageCircle size={18}/> WhatsApp</a>
               : <Link href="/contact/#book" onClick={() => closeMenu(false)}><MessageCircle size={18}/> Request</Link>}
           </div>
         </div>
