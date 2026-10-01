@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { ArrowDown } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
+import { getWhatsAppBookingUrl } from '@/lib/whatsapp';
 
 const steps = [
   ['01', 'Choose your treatment'],
@@ -42,9 +43,9 @@ export function ContactBookingHero() {
             Choose your preferred treatment, duration, date and time. Your request is reviewed before the appointment is confirmed.
           </p>
 
-          <Link className="button button-gold contact-booking-hero-cta" href="#book">
-            Request an appointment <ArrowDown size={15} />
-          </Link>
+          <a className="button button-gold contact-booking-hero-cta" href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer">
+            Reserve your time <MessageCircle size={15} />
+          </a>
 
           <div className="contact-booking-hero-steps" aria-label="Booking process">
             {steps.map(([number, label]) => (
