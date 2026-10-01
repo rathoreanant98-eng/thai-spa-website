@@ -5,6 +5,7 @@ import { Check, Copy, MessageCircle } from 'lucide-react';
 import { business } from '@/data/business';
 import { treatments } from '@/data/treatments';
 import { isConfigured } from '@/lib/config';
+import { getWhatsAppBookingUrl } from '@/lib/whatsapp';
 
 type FormState = {
   name: string;
@@ -107,9 +108,8 @@ export function BookingForm() {
     setSubmitted(true);
 
     if (isConfigured(business.whatsAppNumber)) {
-      const number = business.whatsAppNumber.replace(/\D/g, '');
       window.open(
-        `https://wa.me/${number}?text=${encodeURIComponent(message)}`,
+        getWhatsAppBookingUrl(message),
         '_blank',
         'noopener,noreferrer',
       );
