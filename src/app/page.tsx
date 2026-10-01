@@ -3,6 +3,7 @@ import { ArrowUpRight, LockKeyhole, ShieldCheck, Sparkles, UserRoundCheck, Waves
 import { business } from '@/data/business';
 import { treatments } from '@/data/treatments';
 import { isConfigured } from '@/lib/config';
+import { getWhatsAppBookingUrl } from '@/lib/whatsapp';
 import { MotionReveal } from '@/components/motion-reveal';
 import { SectionHeading } from '@/components/section-heading';
 import { TreatmentCard } from '@/components/treatment-card';
@@ -34,7 +35,7 @@ export default function HomePage() {
               </p>
               <div className="hero-actions">
                 <Link className="button button-gold" href="/therapies/">Explore therapies <ArrowUpRight size={16}/></Link>
-                <Link className="button button-outline" href="/contact/#book">Reserve your time</Link>
+                <a className="button button-outline" href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer">Reserve your time</a>
               </div>
             </div>
 
@@ -235,7 +236,7 @@ export default function HomePage() {
               <div className="contact-fact"><span>Hours</span><span>{isConfigured(business.openingHours) ? business.openingHours : 'Choose a preferred time in your request'}</span></div>
               <div className="contact-fact"><span>Enquiries</span><span>{isConfigured(business.phone) ? business.phone : 'Use the appointment request form'}</span></div>
             </div>
-            <div className="mt-8"><Link className="button button-dark" href="/contact/#book">Request an appointment <ArrowUpRight size={15}/></Link></div>
+            <div className="mt-8"><a className="button button-dark" href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer">Request an appointment <ArrowUpRight size={15}/></a></div>
           </div>
           <div className="editorial-image !min-h-[520px]">
             <img src="/visuals/premium-detail-sensory-shot.webp" alt="Close-up spa ritual detail with warm oil, candlelight and an ornate bowl" loading="lazy"/>
@@ -250,7 +251,7 @@ export default function HomePage() {
           <p className="section-intro mx-auto">
             Explore the therapies, choose the experience that feels right and send an appointment request when you are ready.
           </p>
-          <div className="mt-8"><Link className="button button-gold" href="/contact/#book">Reserve your time <ArrowUpRight size={15}/></Link></div>
+          <div className="mt-8"><a className="button button-gold" href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer">Reserve your time <ArrowUpRight size={15}/></a></div>
         </div>
       </section>
     </>
