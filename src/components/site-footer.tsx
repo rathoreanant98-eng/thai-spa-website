@@ -4,6 +4,7 @@ import { business } from '@/data/business';
 import { navigation } from '@/data/navigation';
 import { treatments } from '@/data/treatments';
 import { displayBrandName, isConfigured } from '@/lib/config';
+import { getWhatsAppBookingUrl } from '@/lib/whatsapp';
 
 const selectedTreatmentSlugs = [
   'thai-massage',
@@ -44,9 +45,9 @@ export function SiteFooter() {
             <p>
               Choose the treatment that feels right, share your preferred time and let the details be confirmed before you arrive.
             </p>
-            <Link className="button button-gold footer-reserve-button" href="/contact/#book">
+            <a className="button button-gold footer-reserve-button" href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer">
               Reserve your time <ArrowUpRight size={15} />
-            </Link>
+            </a>
           </div>
         </div>
       </div>
@@ -105,7 +106,7 @@ export function SiteFooter() {
           </div>
 
           <div className="footer-visit-actions">
-            <Link href="/contact/#book">Request an appointment <ArrowUpRight size={12}/></Link>
+            <a href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer">Request an appointment <ArrowUpRight size={12}/></a>
             <Link href="/spa-guide/">Before your visit <ArrowUpRight size={12}/></Link>
           </div>
         </div>
