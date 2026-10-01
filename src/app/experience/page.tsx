@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { getWhatsAppBookingUrl } from '@/lib/whatsapp';
 import { ExperienceHero } from '@/components/experience-hero';
 import { SectionHeading } from '@/components/section-heading';
 
@@ -45,7 +46,7 @@ export default function ExperiencePage() {
     <section className="page-section"><div className="site-container">
       <SectionHeading eyebrow="The guest journey" title="One continuous rhythm." />
       <div className="ritual-steps">{[['01','ARRIVE','Leave enough room to settle and share preferences without rushing.'],['02','PERSONALIZE','Agree on treatment style, pressure, pacing and comfort.'],['03','RESTORE','Let the session unfold with clear communication when needed.'],['04','RETURN','Finish slowly and take a moment before stepping back into the day.']].map(([n,t,d]) => <div className="ritual-step" key={n}><span className="step-number">{n}</span><h3>{t}</h3><p>{d}</p></div>)}</div>
-      <div className="experience-cta-row"><Link className="button button-dark" href="/therapies/">Explore therapies <ArrowUpRight size={15}/></Link><Link className="text-link" href="/contact/#book">Request an appointment <ArrowUpRight size={14}/></Link></div>
+      <div className="experience-cta-row"><Link className="button button-dark" href="/therapies/">Explore therapies <ArrowUpRight size={15}/></Link><a className="text-link" href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer">Request an appointment <ArrowUpRight size={14}/></a></div>
     </div></section>
   </>;
 }
