@@ -23,7 +23,7 @@ export const business: BusinessConfig = {
   brandName: 'BRAND NAME',
   tagline: 'Private Thai-inspired wellness, designed around you.',
   phone: '[PHONE]',
-  whatsAppNumber: '[WHATSAPP_NUMBER]',
+  whatsAppNumber: '+91-7688866659',
   email: '[EMAIL]',
   address: '[FULL_ADDRESS]',
   city: '[CITY]',
