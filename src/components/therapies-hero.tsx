@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { getWhatsAppBookingUrl } from '@/lib/whatsapp';
 
 const trustItems = [
   'Personalized pressure',
@@ -39,9 +40,9 @@ export function TherapiesHero() {
           </p>
 
           <div className="therapies-hero-actions">
-            <Link className="button button-gold therapies-primary-cta" href="/contact/#book">
+            <a className="button button-gold therapies-primary-cta" href={getWhatsAppBookingUrl()} target="_blank" rel="noreferrer">
               Book a session <ArrowUpRight size={15} />
-            </Link>
+            </a>
             <Link className="button button-outline therapies-secondary-cta" href="#therapy-collection">
               Explore therapies <ArrowDown size={15} />
             </Link>
