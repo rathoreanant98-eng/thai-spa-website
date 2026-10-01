@@ -5,6 +5,7 @@ import { ArrowUpRight, Clock3 } from 'lucide-react';
 import { business } from '@/data/business';
 import { getTreatment, treatments } from '@/data/treatments';
 import { formatPrice } from '@/lib/config';
+import { getTreatmentWhatsAppUrl } from '@/lib/whatsapp';
 
 export function generateStaticParams() { return treatments.map(treatment => ({ slug: treatment.slug })); }
 type PageProps = { params: Promise<{ slug: string }> };
@@ -36,7 +37,7 @@ export default async function TreatmentDetailPage({ params }: PageProps) {
           <span><Clock3 size={14}/>{treatment.durationOptions.join(' / ')} minutes</span><span>{treatment.pressureLevel} pressure</span>
           {business.bookingSettings.showPrices ? <span>From {formatPrice(treatment.startingPrice, business.bookingSettings.currency)}</span> : <span>Pricing on request</span>}
         </div>
-        <div className="treatment-detail-actions"><Link className="button button-gold" href={`/contact/?treatment=${treatment.slug}#book`}>Reserve this treatment <ArrowUpRight size={15}/></Link><Link className="text-link light-link" href="/therapies/">Back to therapies</Link></div>
+        <div className="treatment-detail-actions"><a className="button button-gold" href={getTreatmentWhatsAppUrl(treatment.name)} target="_blank" rel="noreferrer">Reserve this treatment <ArrowUpRight size={15}/></a><Link className="text-link light-link" href="/therapies/">Back to therapies</Link></div>
       </div>
     </section>
 
@@ -60,7 +61,7 @@ export default async function TreatmentDetailPage({ params }: PageProps) {
 
     <section className="page-section dark-section treatment-closing-cta"><div className="site-container text-center">
       <p className="eyebrow">Ready when you are</p><h2 className="display-title mx-auto">Make room for the experience.</h2><p className="section-intro mx-auto">Send your preferred date and time. The appointment is confirmed directly after availability is checked.</p>
-      <div className="mt-8"><Link className="button button-gold" href={`/contact/?treatment=${treatment.slug}#book`}>Request an appointment <ArrowUpRight size={15}/></Link></div>
+      <div className="mt-8"><a className="button button-gold" href={getTreatmentWhatsAppUrl(treatment.name)} target="_blank" rel="noreferrer">Request an appointment <ArrowUpRight size={15}/></a></div>
     </div></section>
   </>;
 }
