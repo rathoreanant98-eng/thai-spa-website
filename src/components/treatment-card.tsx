@@ -3,6 +3,7 @@ import { ArrowUpRight, Clock3 } from 'lucide-react';
 import { Treatment } from '@/data/treatments';
 import { business } from '@/data/business';
 import { formatPrice } from '@/lib/config';
+import { getTreatmentWhatsAppUrl } from '@/lib/whatsapp';
 
 export function TreatmentCard({ treatment, feature = false }: { treatment: Treatment; feature?: boolean }) {
   return <article className={`treatment-card ${feature ? 'feature-card' : ''}`}>
@@ -22,7 +23,7 @@ export function TreatmentCard({ treatment, feature = false }: { treatment: Treat
       <div className="treatment-highlights">{treatment.highlights.slice(0, 3).map(item => <span key={item}>{item}</span>)}</div>
       <div className="card-actions">
         <Link className="text-link" href={`/therapies/${treatment.slug}/`}>Discover <ArrowUpRight size={14}/></Link>
-        <Link className="text-link treatment-reserve-link" href={`/contact/?treatment=${treatment.slug}#book`}>Reserve <ArrowUpRight size={14}/></Link>
+        <a className="text-link treatment-reserve-link" href={getTreatmentWhatsAppUrl(treatment.name)} target="_blank" rel="noreferrer">Reserve <ArrowUpRight size={14}/></a>
       </div>
     </div>
   </article>;
